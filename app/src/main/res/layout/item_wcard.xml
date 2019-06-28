@@ -21,21 +21,21 @@
                 android:id="@+id/iv_wcard_url"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/default_icon"
+                android:src="@drawable/user_iv_wcard_icon"
                 android:layout_weight="2"/>
             <TextView
                 android:id="@+id/tv_wcard_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="转向灯质保卡"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:layout_weight="5"/>
             <TextView
                 android:id="@+id/tv_wcard_staus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="已过期"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:layout_weight="1"/>
         </LinearLayout>
 

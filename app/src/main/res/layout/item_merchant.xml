@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_corner"
+    android:layout_margin="5dp"
+    android:descendantFocusability="blocksDescendants">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="20dp">
+        <ImageView
+            android:id="@+id/user_iv_merchant_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/user_merchant_icon"/>
+        <TextView
+            android:id="@+id/user_tv_merchant_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:text="我的商家"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -37,4 +37,5 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //导入zxing
     compile 'cn.yipianfengye.android:zxing-library:2.2'
+    compile 'pub.devrel:easypermissions:0.2.0'
 }

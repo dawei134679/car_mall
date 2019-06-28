@@ -22,7 +22,8 @@
             android:id="@+id/iv_good"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:src="@drawable/default_icon" />
+            android:src="@drawable/order_good_icon"
+            android:layout_marginLeft="20dp" />
 
             <TextView
                 android:id="@+id/good_describe"
@@ -31,9 +32,10 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/iv_good"
-                android:text="嘉实多......................................"
+                android:text="嘉实多............"
+                android:lines="1"
                 android:lineSpacingExtra="1dp"
-                android:textSize="20dp" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/good_price"
@@ -44,7 +46,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/iv_good"
-                android:textSize="20dp"
+                android:textSize="12dp"
                 android:textColor="@color/orderMoney"
                 android:visibility="visible" />
 
@@ -56,7 +58,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@id/iv_good"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:layout_below="@+id/good_price" />
 
             <TextView
@@ -66,8 +68,8 @@
                 android:layout_toRightOf="@+id/good_specification"
                 android:layout_alignTop="@id/good_specification"
                 android:text="×10"
-                android:textSize="20dp"
-                android:layout_marginLeft="150dp"/>
+                android:textSize="12dp"
+                android:layout_marginLeft="100dp"/>
 
     </RelativeLayout>
 

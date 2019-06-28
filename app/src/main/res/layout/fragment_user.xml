@@ -7,11 +7,15 @@
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
@@ -20,7 +24,9 @@
                 android:textColor="#303235"
                 android:textSize="25sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="20dp"
+                android:id="@+id/textView2" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +38,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_user_icon" />
+                    android:background="@drawable/user_head_image" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,8 +56,10 @@
             <TextView
                 android:id="@+id/tv_user_collect"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_sc"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="我的收藏" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -59,7 +67,8 @@
             <TextView
                 android:id="@+id/tv_user_zbk"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_zbk"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="我的质保卡" />
 
             <View
@@ -70,8 +79,21 @@
             <TextView
                 android:id="@+id/tv_user_dkj"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_dkj"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="轮胎抵扣卷" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eee" />
+
+            <TextView
+                android:id="@+id/tv_user_jjgz"
+                style="@style/TextStyle"
+                android:drawableLeft="@drawable/user_channel_icon_jjgz"
+                android:drawableRight="@drawable/user_arrow_icon"
+                android:text="计价规则" />
 
             <View
                 android:layout_width="match_parent"
@@ -81,7 +103,8 @@
             <TextView
                 android:id="@+id/tv_user_zpzz"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_zpzz"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="增票资质" />
             <View
                 android:layout_width="match_parent"
@@ -91,18 +114,14 @@
             <TextView
                 android:id="@+id/tv_user_fpgl"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_fpgl"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="发票管理" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#eee" />
 
-            <TextView
-                android:id="@+id/tv_user_jjgz"
-                style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
-                android:text="计价规则" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -111,7 +130,8 @@
             <TextView
                 android:id="@+id/tv_user_yqhy"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_yqhy"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="邀请好友" />
             <View
                 android:layout_width="match_parent"
@@ -121,7 +141,8 @@
             <TextView
                 android:id="@+id/tv_user_ptdh"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_ptdh"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="平台电话" />
             <View
                 android:layout_width="match_parent"
@@ -131,7 +152,8 @@
             <TextView
                 android:id="@+id/tv_user_lxpt"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_lxpt"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="联系平台" />
             <View
                 android:layout_width="match_parent"
@@ -140,7 +162,8 @@
             <TextView
                 android:id="@+id/tv_user_sjgzt"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_sjpt"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="商家工作台" />
             <View
                 android:layout_width="match_parent"
@@ -150,16 +173,22 @@
             <TextView
                 android:id="@+id/tv_user_yggzt"
                 style="@style/TextStyle"
-                android:drawableLeft="@drawable/user_channel_icon_collect"
+                android:drawableLeft="@drawable/user_channel_icon_yggzpt"
+                android:drawableRight="@drawable/user_arrow_icon"
                 android:text="员工工作台" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#eee" />
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#eee"
+                android:layout_marginTop="20dp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:text="退出登录" />
         </LinearLayout>
     </ScrollView>

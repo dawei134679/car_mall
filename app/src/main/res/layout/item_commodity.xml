@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_corner"
+    android:layout_margin="5dp"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+
+    <TextView
+        android:id="@+id/user_iv_commodity_imgurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/user_commodity_icon"/>
+
+    <TextView
+        android:id="@+id/user_tv_commodity_describe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:textSize="12dp"
+        android:lines="3"
+        android:text="轮胎正品保证"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/orderMoney"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:text="$249"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="#538BF0"
+            android:text="购买"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/user_commodity_buy_bg"/>
+    </LinearLayout>
+</LinearLayout>

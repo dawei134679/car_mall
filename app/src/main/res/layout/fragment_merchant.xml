@@ -2,12 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hkkj.carmall.user.fragment.MerchantFragment">
+    tools:context="com.hkkj.carmall.user.fragment.MerchantFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_merchant"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="商家" />
+        android:background="@color/rvbgColor"
+        />
 
 </LinearLayout>

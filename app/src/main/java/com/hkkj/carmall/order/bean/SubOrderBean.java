@@ -7,7 +7,7 @@ public class SubOrderBean {
     private String imageUrl;
     private String describe = "嘉实多";
     private double price = 10.0;
-    private String specification = "1*8";
+    private String specification = "规格1*8";
     private int num = 10;
 
     public String getImageUrl() {
