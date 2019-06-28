@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="defaultDividerLine">#E0E0E0</color>  //默认分割线颜色
+    <color name="orderMoney">#ff5602</color>  //默认分割线颜色
+    <color name="rvbgColor">#F7F7F7</color>  //RecyclerView背景颜色
+    <color name="white">#fff</color>
+
+    <color name="mainColor">#FF294C</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorHalfTransparent">#77000000</color>
+    <color name="colorHalfWhiteTransparent">#77ffffff</color>
+    <color name="color44WhiteTransparent">#44ffffff</color>
+    <color name="color99Transparent">#99ffffff</color>
+    <color name="color11WhiteTransparent">#55ffffff</color>
+    <color name="defaultBackground">#f7f7f7</color> //默认背景颜色
+    <color name="defaultTextview">#424242</color>  //默认文字的颜色
+    <color name="emphasisTextview">#292929</color>  //默认重点强调文字颜色
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="colorPurple">#FF00FF</color>
+    <color name="colorOrange">#FFA500</color>
+</resources>

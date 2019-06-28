@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkkj.carmall.user.activity.WarrantyCardActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="质保卡"
+            android:textColor="#303235"
+            android:textSize="25sp" />
+    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/rg_warranty_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+        <RadioButton
+            android:id="@+id/rb_valid"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="生效中"
+            style="@style/TextButtonStyle"/>
+
+        <RadioButton
+            android:id="@+id/rb_unvalid"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="已过期"
+            style="@style/TextButtonStyle"/>
+    </RadioGroup>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_wcards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rvbgColor"
+        android:padding="5dp"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

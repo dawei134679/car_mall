@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.hkkj.carmall"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
+    testCompile 'junit:junit:4.12'
+    //高德地图导入包
+    compile 'com.amap.api:3dmap:5.0.0'
+    compile 'com.amap.api:location:3.3.0'
+    compile 'com.amap.api:search:5.0.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    //开源框架BaseRecyclerViewAdapterHelper使用——RecyclerView万能适配器
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //导入zxing
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+}
