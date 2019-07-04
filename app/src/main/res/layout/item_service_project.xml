@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="换轮胎"
+            android:textSize="15dp"
+            android:layout_weight="1"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="20dp">
+            <ImageView
+                android:id="@+id/iv_shop_project_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_gravity="right"
+                android:src="@drawable/project_sub" />
+            <TextView
+                android:id="@+id/tv_project_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="0"/>
+            <ImageView
+                android:id="@+id/iv_shop_project_add"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:src="@drawable/project_add"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View style="@style/Line_e0e0e0_Horizontal"/>
+</LinearLayout>

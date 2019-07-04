@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_goods_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hkkj.carmall.activity.GoodsInfoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/ib_goods_info_back"
+            style="@style/top_back_style"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="商品详情"
+            style="@style/top_title_style" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/goods_info_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/b_goods_info_hBanner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:indicator_height="5dp"
+                app:indicator_width="5dp"
+                app:is_auto_play="true">
+            </com.youth.banner.Banner>
+
+            <TextView
+                android:id="@+id/tv_goods_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/orderMoney"
+                android:text="￥630"/>
+            <TextView
+                android:id="@+id/tv_goods_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:lines="1"
+                android:textColor="@color/help_view"
+                android:text="嘉实多............"/>
+            <View style="@style/Line_e0e0e0_Horizontal_8"/>
+            <LinearLayout
+                android:id="@+id/ll_goods_info_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/help_view"
+                    android:layout_weight="1"
+                    android:textSize="12dp"
+                    android:text="选择商规则"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text='已选 "6*4L"'/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/user_arrow_icon"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+            <View style="@style/Line_e0e0e0_Horizontal_8"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_margin="5dp"
+                >
+                <ImageView
+                    android:id="@+id/iv_order_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/order_all_icon"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_goods_shop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="工厂直营店"
+                    android:layout_weight="1"
+                    android:textColor="@color/defaultTextview"
+                    />
+                <TextView
+                    android:id="@+id/tv_goods_goShop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/shape_radius_solid_white"
+                    android:text="进入店铺"
+                    android:padding="5dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/defaultTextview" />
+            </LinearLayout>
+            <View style="@style/Line_e0e0e0_Horizontal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="商品详情"
+                android:textColor="@color/defaultTextview"/>
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/iv_goods_describe_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/good_info_describe_icon"/>
+            <View style="@style/Line_e0e0e0_Horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/goods_collect_icon"
+                    android:drawablePadding="5dp"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="收藏"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:background="@color/colorOrange"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="加入购物车"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

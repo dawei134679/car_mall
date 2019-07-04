@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_merchant_platfrom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hkkj.carmall.activity.MerchantPlatformActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/ib_merchant_platform_back"
+            style="@style/top_back_style"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商家工作台"
+            style="@style/top_title_style"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView4" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_mp_manage"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_sjgl_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="商家管理" />
+        <View style="@style/Line_e0e0e0_Horizontal"/>
+        <TextView
+            android:id="@+id/tv_mp_yqyg"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_yqyg_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="邀请员工" />
+        <View style="@style/Line_e0e0e0_Horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_mp_serviceManage"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_dkj_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="服务项目管理" />
+        <View style="@style/Line_e0e0e0_Horizontal"/>
+        <TextView
+            android:id="@+id/tv_mp_orderManage"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_ddgl_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="轮胎抵扣卷" />
+    </LinearLayout>
+
+</LinearLayout>

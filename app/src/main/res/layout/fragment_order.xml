@@ -9,54 +9,49 @@
         android:layout_height="35dp"
         android:gravity="center"
         android:text="订单"
-        android:textColor="#303235"
-        android:textSize="25sp"
+        style="@style/top_title_style"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
     <RadioGroup
         android:id="@+id/rg_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
 
         <RadioButton
-        android:id="@+id/rb_dfk"
+        android:id="@+id/rb_fo_dfk"
         android:layout_height="wrap_content"
         android:text="待付款"
-        style="@style/OrderButtonStyle"/>
+        style="@style/FoButtonStyle"/>
 
         <RadioButton
-            android:id="@+id/rb_dfw"
-            android:gravity="center"
+            android:id="@+id/rb_fo_dfw"
             android:layout_height="wrap_content"
             android:text="待服务"
-            style="@style/OrderButtonStyle"/>
+            style="@style/FoButtonStyle"/>
         <RadioButton
-            android:id="@+id/rb_dwc"
+            android:id="@+id/rb_fo_dwc"
             android:layout_height="wrap_content"
             android:text="待完成"
-            style="@style/OrderButtonStyle"/>
+            style="@style/FoButtonStyle"/>
 
         <RadioButton
-            android:id="@+id/rb_dpj"
-            android:gravity="center"
+            android:id="@+id/rb_fo_dpj"
             android:layout_height="wrap_content"
             android:text="待评价"
-            style="@style/OrderButtonStyle"/>
+            style="@style/FoButtonStyle"/>
         <RadioButton
-            android:id="@+id/rb_all"
-            android:gravity="center"
+            android:id="@+id/rb_fo_all"
             android:layout_height="wrap_content"
             android:text="全部"
-            style="@style/OrderButtonStyle"/>
+            style="@style/FoButtonStyle"/>
     </RadioGroup>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvOrder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/rvbgColor"
-        />
+        android:background="@color/rvbgColor" />
 
 </LinearLayout>

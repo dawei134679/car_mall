@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_increased_ticket"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.hkkj.carmall.activity.IncreasedTicketActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/ib_increased_ticket_back"
+            style="@style/top_back_style"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="增票资质"
+            style="@style/top_title_style" />
+    </RelativeLayout>
+    <ScrollView
+        android:id="@+id/ita_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/user_channel_icon_zpzz"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orderMoney"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:text="填写资质信息"/>
+            </LinearLayout>
+
+            <View style="@style/Line_e0e0e0_Horizontal_8"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="单位名称:"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_ita_dwmc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入发票抬头单位名称"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="15dp"
+                style="@style/Line_e0e0e0_Horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="纳税人识别号:"
+                    android:textSize="15sp" />
+
+                <EditText
+
+                    android:id="@+id/et_ita_sbh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入纳税人识别号"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="15dp"
+                style="@style/Line_e0e0e0_Horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="企业地址"
+                    android:textSize="15sp" />
+
+                <EditText
+
+                    android:id="@+id/et_ita_qydz"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入企业地址"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="15dp"
+                style="@style/Line_e0e0e0_Horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话号码"
+                    android:textSize="15sp" />
+
+                <EditText
+
+                    android:id="@+id/et_ida_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入电话号码"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="15dp"
+                style="@style/Line_e0e0e0_Horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开户银行"
+                    android:textSize="15sp" />
+
+                <EditText
+
+                    android:id="@+id/et_ida_bank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入开户银行"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="15dp"
+                style="@style/Line_e0e0e0_Horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="银行账号"
+                    android:textSize="15sp" />
+
+                <EditText
+
+                    android:id="@+id/et_ida_bankCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入银行账号"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <View style="@style/Line_e0e0e0_Horizontal_5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+                <CheckBox
+                    android:id="@+id/spc_ita_ckbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/spc_checkbox_style"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/help_view"
+                    android:text="我已阅读同意" />
+                <TextView
+                    android:id="@+id/tv_ita_qrs_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/cc"
+                    android:text="《增票资质确认书》"
+                    android:layout_marginRight="20dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/rvbgColor">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/spcOrange"
+            android:layout_margin="10dp"
+            android:text="!本页面信息仅供增值税专用发票-资质审核使用,切勿进行支付相关业务,谨防上当受骗。"
+            android:id="@+id/textView3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/spcOrange"
+            android:textColor="@color/white"
+            android:layout_margin="20dp"
+            android:text="提交"/>
+    </LinearLayout>
+
+
+</LinearLayout>

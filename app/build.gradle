@@ -38,4 +38,9 @@ dependencies {
     //导入zxing
     compile 'cn.yipianfengye.android:zxing-library:2.2'
     compile 'pub.devrel:easypermissions:0.2.0'
+    //图片轮播控件
+    compile 'com.youth.banner:banner:1.4.9'
+    //glide加载图片
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+
 }

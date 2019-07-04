@@ -8,12 +8,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_gravity="center_vertical">
         <ImageButton
             android:id="@+id/ib_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/top_back_style"
             android:background="@drawable/top_bar_left_back" />
 
         <TextView
@@ -21,8 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="质保卡"
-            android:textColor="#303235"
-            android:textSize="25sp" />
+            style="@style/top_title_style" />
     </RelativeLayout>
     <RadioGroup
         android:id="@+id/rg_warranty_card"
@@ -56,5 +54,4 @@
         android:padding="5dp"
         >
     </android.support.v7.widget.RecyclerView>
-
 </LinearLayout>

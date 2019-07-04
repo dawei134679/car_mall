@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hkkj.carmall">
-    <!--允许程序打开网络套接字-->
+
+    <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--允许程序设置内置sd卡的写权限-->
+    <!-- 允许程序设置内置sd卡的写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许程序获取网络状态-->
+    <!-- 允许程序获取网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--允许程序访问WiFi网络信息-->
+    <!-- 允许程序访问WiFi网络信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许程序读写手机状态和身份-->
+    <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 允许使用相机 -->
     <uses-permission android:name="android.permission.CAMERA" />
-
-
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -35,7 +34,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="c840bb37a57c884fba2ef3dfe1009dc0"/>
+            android:value="c840bb37a57c884fba2ef3dfe1009dc0" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,8 +44,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".user.activity.CollectActivity" />
-        <activity android:name=".user.activity.WarrantyCardActivity"></activity>
-        <service android:name="com.amap.api.location.APSService"/>
+        <activity android:name=".user.activity.WarrantyCardActivity" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity android:name=".activity.ShopActivity" />
+        <activity android:name=".activity.GoodsInfoActivity" />
+        <activity
+            android:name=".activity.ShopCartActivity"
+            android:label="@string/title_activity_shop_cart" />
+        <activity android:name=".activity.IncreasedTicketActivity" />
+        <activity android:name=".activity.MerchantPlatformActivity" />
+        <activity
+            android:name=".activity.EmployeePlatformActivity"
+            android:label="@string/title_activity_employee_platform"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,7 @@
 package com.hkkj.carmall.user.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,7 +14,7 @@ import com.hkkj.carmall.user.bean.WcardsBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WarrantyCardActivity extends AppCompatActivity {
+public class WarrantyCardActivity extends Activity {
     private RecyclerView rvWcards;
     private ImageButton ib_back;
     private List<WcardsBean> datas;

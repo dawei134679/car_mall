@@ -1,12 +1,19 @@
 package com.hkkj.carmall.user.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hkkj.carmall.R;
+import com.hkkj.carmall.activity.EmployeePlatformActivity;
+import com.hkkj.carmall.activity.GoodsInfoActivity;
+import com.hkkj.carmall.activity.IncreasedTicketActivity;
+import com.hkkj.carmall.activity.MerchantPlatformActivity;
+import com.hkkj.carmall.activity.ShopActivity;
+import com.hkkj.carmall.activity.ShopCartActivity;
 import com.hkkj.carmall.base.BaseFragment;
 import com.hkkj.carmall.user.activity.CollectActivity;
 import com.hkkj.carmall.user.activity.WarrantyCardActivity;
@@ -66,35 +73,46 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             Intent intent = new Intent(mContext, WarrantyCardActivity.class);
             startActivity(intent);
         }else if (v == tvUserDkj ){
-            Toast.makeText(mContext, "轮胎抵扣卷", Toast.LENGTH_SHORT).show();
-            Log.e("A","轮胎抵扣卷");
+            Intent intent = new Intent(mContext, ShopActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "轮胎抵扣卷", Toast.LENGTH_SHORT).show();
+            Log.e("A","轮胎抵扣卷");*/
         }else if (v == tvUserZpzz ){
-            Toast.makeText(mContext, "增票资质", Toast.LENGTH_SHORT).show();
-            Log.e("A","增票资质");
+            Intent intent = new Intent(mContext, IncreasedTicketActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "增票资质", Toast.LENGTH_SHORT).show();
+            Log.e("A","增票资质");*/
         }else if (v == tvUserFpgl ){
             Toast.makeText(mContext, "发票管理", Toast.LENGTH_SHORT).show();
             Log.e("A","发票管理");
         }else if (v == tvUserJjgz ){
-            Toast.makeText(mContext, "计价规则", Toast.LENGTH_SHORT).show();
-            Log.e("A","计价规则");
+            Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "计价规则", Toast.LENGTH_SHORT).show();
+            Log.e("A","计价规则");*/
         }else if (v == tvUserYqhy ){
             Toast.makeText(mContext, "邀请好友", Toast.LENGTH_SHORT).show();
             Log.e("A","邀请好友");
         }else if (v == tvUserPtdh ){
-            Toast.makeText(mContext, "平台电话", Toast.LENGTH_SHORT).show();
-            Log.e("A","平台电话");
+            Intent intent = new Intent(mContext, ShopCartActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "平台电话", Toast.LENGTH_SHORT).show();
+            Log.e("A","平台电话");*/
         }else if (v == tvUserLxpt ){
-            Toast.makeText(mContext, "联系平台", Toast.LENGTH_SHORT).show();
-            Log.e("A","联系平台");
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=532231254&version=1")));
+
+           /* Toast.makeText(mContext, "联系平台", Toast.LENGTH_SHORT).show();
+            Log.e("A","联系平台");*/
         }else if (v == tvUserSjgzt ){
-            Toast.makeText(mContext, "我的质保卡", Toast.LENGTH_SHORT).show();
-            Log.e("A","我的质保卡");
-        }else if (v == tvUserZbk ){
-            Toast.makeText(mContext, "商家工作台", Toast.LENGTH_SHORT).show();
-            Log.e("A","商家工作台");
+            Intent intent = new Intent(mContext, MerchantPlatformActivity.class);
+            startActivity(intent);
+           /* Toast.makeText(mContext, "商家工作台", Toast.LENGTH_SHORT).show();
+            Log.e("A","商家工作台");*/
         }else if (v == tvUserYggzt ){
-            Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
-            Log.e("A","员工工作台");
+            Intent intent = new Intent(mContext, EmployeePlatformActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
+            Log.e("A","员工工作台");*/
         }
     }
 

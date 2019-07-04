@@ -25,7 +25,6 @@ public class MainActivity extends FragmentActivity {
     RadioButton rbHome;
     @Bind(R.id.rb_order)
     RadioButton rbOrder;
-    RadioButton rbCart;
     @Bind(R.id.rb_user)
     RadioButton rbUser;
     @Bind(R.id.rg_main)

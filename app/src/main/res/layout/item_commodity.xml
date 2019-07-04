@@ -48,7 +48,7 @@
             android:textSize="15dp"
             android:textColor="#538BF0"
             android:text="购买"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="40dp"
             android:background="@drawable/user_commodity_buy_bg"/>
     </LinearLayout>
 </LinearLayout>

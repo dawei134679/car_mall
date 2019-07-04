@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_shop_cart_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="到店服务"/>
+    <View style="@style/Line_e0e0e0_Horizontal"/>
+    <View style="@style/Line_e0e0e0_Horizontal_qk"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_shop_cart_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -21,8 +21,7 @@
                 android:layout_height="35dp"
                 android:gravity="center"
                 android:text="个人中心"
-                android:textColor="#303235"
-                android:textSize="25sp"
+                style="@style/top_title_style"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:id="@+id/textView2" />
@@ -121,12 +120,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#eee" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#eee" />
-
             <TextView
                 android:id="@+id/tv_user_yqhy"
                 style="@style/TextStyle"
