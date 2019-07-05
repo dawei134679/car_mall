@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,7 +12,9 @@ import com.hkkj.carmall.R;
 import com.hkkj.carmall.activity.EmployeePlatformActivity;
 import com.hkkj.carmall.activity.GoodsInfoActivity;
 import com.hkkj.carmall.activity.IncreasedTicketActivity;
+import com.hkkj.carmall.activity.LogionActivity;
 import com.hkkj.carmall.activity.MerchantPlatformActivity;
+import com.hkkj.carmall.activity.ProjectRuleActivity;
 import com.hkkj.carmall.activity.ShopActivity;
 import com.hkkj.carmall.activity.ShopCartActivity;
 import com.hkkj.carmall.base.BaseFragment;
@@ -31,6 +34,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvUserLxpt;
     private TextView tvUserSjgzt;
     private TextView tvUserYggzt;
+    private Button userLogoinOut;
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_user, null);
@@ -50,6 +54,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvUserLxpt = view.findViewById(R.id.tv_user_lxpt);
         tvUserSjgzt = view.findViewById(R.id.tv_user_sjgzt);
         tvUserYggzt = view.findViewById(R.id.tv_user_yggzt);
+        userLogoinOut = view.findViewById(R.id.user_logoin_out);
 
         tvUserCollect.setOnClickListener(this);
         tvUserZbk.setOnClickListener(this);
@@ -62,6 +67,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvUserLxpt.setOnClickListener(this);
         tvUserSjgzt.setOnClickListener(this);
         tvUserYggzt.setOnClickListener(this);
+        userLogoinOut.setOnClickListener(this);
     }
 
     @Override
@@ -83,10 +89,12 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             /*Toast.makeText(mContext, "增票资质", Toast.LENGTH_SHORT).show();
             Log.e("A","增票资质");*/
         }else if (v == tvUserFpgl ){
-            Toast.makeText(mContext, "发票管理", Toast.LENGTH_SHORT).show();
-            Log.e("A","发票管理");
-        }else if (v == tvUserJjgz ){
             Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "发票管理", Toast.LENGTH_SHORT).show();
+            Log.e("A","发票管理");*/
+        }else if (v == tvUserJjgz ){
+            Intent intent = new Intent(mContext, ProjectRuleActivity.class);
             startActivity(intent);
             /*Toast.makeText(mContext, "计价规则", Toast.LENGTH_SHORT).show();
             Log.e("A","计价规则");*/
@@ -110,6 +118,11 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             Log.e("A","商家工作台");*/
         }else if (v == tvUserYggzt ){
             Intent intent = new Intent(mContext, EmployeePlatformActivity.class);
+            startActivity(intent);
+            /*Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
+            Log.e("A","员工工作台");*/
+        }else if (v == userLogoinOut ){
+            Intent intent = new Intent(mContext, LogionActivity.class);
             startActivity(intent);
             /*Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
             Log.e("A","员工工作台");*/

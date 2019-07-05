@@ -94,7 +94,7 @@ public class ShopActivity extends Activity {
         datas.add(commodityBean5);
         sdatas = new ArrayList<ServiceProjectBean>();
         ServiceProjectBean serviceProjectBean1 = new ServiceProjectBean(1,"换备胎");
-        ServiceProjectBean serviceProjectBean2 = new ServiceProjectBean(2,"补打胎");
+        ServiceProjectBean serviceProjectBean2 = new ServiceProjectBean(2,"补大胎");
         ServiceProjectBean serviceProjectBean3 = new ServiceProjectBean(3,"倒轮");
         ServiceProjectBean serviceProjectBean4 = new ServiceProjectBean(4,"换机油");
         ServiceProjectBean serviceProjectBean5 = new ServiceProjectBean(5,"换燃油");

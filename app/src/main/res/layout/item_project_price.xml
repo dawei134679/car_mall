@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/defaultDividerLine"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/tv_pra_project_name"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="换轮胎"
+            android:textSize="15dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/defaultDividerLine"
+            android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:id="@+id/tv_pra_project_price"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="30"
+            android:textSize="15dp"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/defaultDividerLine"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+    <View style="@style/Line_e0e0e0_Horizontal"/>
+</LinearLayout>
