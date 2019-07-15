@@ -18,6 +18,7 @@ import com.hkkj.carmall.activity.IncreasedTicketActivity;
 import com.hkkj.carmall.activity.LoginActivity;
 import com.hkkj.carmall.activity.MerchantPlatformActivity;
 import com.hkkj.carmall.activity.ProjectRuleActivity;
+import com.hkkj.carmall.activity.SelectPhotoActivity;
 import com.hkkj.carmall.activity.ShopActivity;
 import com.hkkj.carmall.activity.ShopCartActivity;
 import com.hkkj.carmall.base.BaseFragment;
@@ -69,6 +70,9 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvUserSjgzt = view.findViewById(R.id.tv_user_sjgzt);
         tvUserYggzt = view.findViewById(R.id.tv_user_yggzt);
         userLogoinOut = view.findViewById(R.id.user_logoin_out);
+
+//        GlideImageUtils.DisplayCircle(mContext,"http://img4.duitang.com/uploads/item/201209/20/20120920160424_QH2jt.thumb.600_0.jpeg",userIcon);
+
 
         userIcon.setOnClickListener(this);
         tvUserCollect.setOnClickListener(this);
@@ -123,8 +127,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             //退出登录
             logout();
         }else if (v == userIcon ){
-          /*  Intent intent = new Intent(mContext, SelectPhotoActivity.class);
-             startActivity(intent);*/
+            Intent intent = new Intent(mContext, SelectPhotoActivity.class);
+             startActivity(intent);
         }
     }
     public void logout() {

@@ -25,6 +25,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
@@ -32,7 +34,7 @@ dependencies {
     compile 'com.amap.api:3dmap:5.0.0'
     compile 'com.amap.api:location:3.3.0'
     compile 'com.amap.api:search:5.0.0'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
     //开源框架BaseRecyclerViewAdapterHelper使用——RecyclerView万能适配器
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //导入zxing
@@ -47,6 +49,6 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     //json工具
     compile files('libs/fastjson-1.2.4.jar')
-    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
 
+    compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.5'
 }

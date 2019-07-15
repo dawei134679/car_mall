@@ -13,4 +13,6 @@ public class Constants {
     public static final String GET_USER_INFO = BASE + "/front/user/getMyInfo";
 
     public static final String LOGOUT = BASE + "/front/login/logout";
+
+    public static final String DO_UPLOAD = BASE + "/front/upload/doUpload";
 }

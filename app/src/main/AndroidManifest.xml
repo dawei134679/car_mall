@@ -39,13 +39,15 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="c840bb37a57c884fba2ef3dfe1009dc0" />
-        <activity android:name=".activity.LoginActivity" >
+
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".user.activity.CollectActivity" />
         <activity android:name=".user.activity.WarrantyCardActivity" />
 
@@ -62,13 +64,13 @@
             android:name=".activity.EmployeePlatformActivity"
             android:label="@string/title_activity_employee_platform" />
         <activity android:name=".activity.ProjectRuleActivity" />
-
         <activity android:name=".merchant.StoreManageActivity" />
         <activity android:name=".merchant.GoodsManageActivity" />
         <activity android:name=".order.activity.EvaluateActivity" />
         <activity android:name=".merchant.ManageOfProjectServiceActivity" />
         <activity android:name=".merchant.InviteEmployeeActivity" />
-        <activity android:name=".activity.SettlementActivity"></activity>
+        <activity android:name=".activity.SettlementActivity" />
+        <activity android:name=".activity.SelectPhotoActivity"></activity>
     </application>
 
 </manifest>
