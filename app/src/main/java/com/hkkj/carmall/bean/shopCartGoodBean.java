@@ -1,7 +1,7 @@
 package com.hkkj.carmall.bean;
 
 /**
- * Created by Administrator on 2019/7/2.
+ * Created by 李大为 on 2019/7/2.
  */
 
 public class ShopCartGoodBean {

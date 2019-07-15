@@ -1,7 +1,7 @@
 package com.hkkj.carmall.order.bean;
 
 /**
- * Created by Administrator on 2019/6/26.
+ * Created by 李大为 on 2019/6/26.
  */
 public class SubOrderBean {
     private String imageUrl;

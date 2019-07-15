@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="工厂店"
-            android:textColor="#666666"
+            android:textColor="@color/emphasisTextview"
             android:textSize="15dp"
             />
         <TextView
@@ -38,7 +38,7 @@
             android:gravity="center_vertical"
             android:text="已支付"
             android:layout_marginLeft="150dp"
-            android:textColor="#666666"
+            android:textColor="@color/emphasisTextview"
             android:textSize="15dp"
             />
     </LinearLayout>
@@ -66,6 +66,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center">
         <ImageView
+            android:id="@+id/tv_order_qrcode_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/order_qrcode"
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/orderMoney"
                     android:text="￥10"
-                    android:id="@+id/textView" />
+                    android:id="@+id/tv_order_qcar_money" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,11 +103,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="订单总额:"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/orderMoney"
-                    android:text="￥10"/>
+                    android:text="￥10"
+                    android:id="@+id/tv_order_all_money" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -125,9 +128,57 @@
             android:layout_height="wrap_content"
             android:text="已支付:"/>
         <TextView
+            android:id="@+id/tv_order_pay_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/orderMoney"
             android:text="￥15"/>
+    </LinearLayout>
+    <View style="@style/Line_e0e0e0_Horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="@color/emphasisTextview"
+            android:text="订单详情"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单编号："/>
+            <TextView
+                android:id="@+id/tv_order_code"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1234567891234567"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单编号："/>
+            <TextView
+                android:id="@+id/tv_order_createt_ime"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1234567891234567"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.hkkj.carmall.home.fragment;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -15,6 +16,9 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.base.BaseFragment;
@@ -45,12 +49,15 @@ public class ScarFragment extends BaseFragment implements AMapLocationListener, 
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_scar, null);
         tvAdress = getActivity().findViewById(R.id.tv_home_adress);
+        LatLng latLng = new LatLng(39.93, 119.60);
 
         mMapView = view.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
         if (aMap == null) {
             aMap = mMapView.getMap();
         }
+        aMap.addMarker(new MarkerOptions().position(latLng).title("大为车胎").snippet("车胎非常好").icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
+                .decodeResource(getResources(),R.drawable.shop_icon))));
         //设置显示定位按钮 并且可以点击
         UiSettings settings = aMap.getUiSettings();
         myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。

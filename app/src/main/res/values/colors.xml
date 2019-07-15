@@ -29,4 +29,5 @@
     <color name="colorYellow">#FFFF00</color>
     <color name="colorPurple">#FF00FF</color>
     <color name="colorOrange">#FFA500</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
 </resources>

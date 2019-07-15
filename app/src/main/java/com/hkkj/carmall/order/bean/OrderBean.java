@@ -3,7 +3,7 @@ package com.hkkj.carmall.order.bean;
 import java.util.List;
 
 /**
- * Created by Administrator on 2019/6/26.
+ * Created by 李大为 on 2019/6/26.
  */
 
 public class OrderBean {

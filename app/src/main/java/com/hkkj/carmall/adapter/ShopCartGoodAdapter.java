@@ -11,7 +11,7 @@ import com.hkkj.carmall.bean.ShopCartGoodBean;
 import java.util.List;
 
 /**
- * Created by Administrator on 2019/6/28.
+ * Created by 李大为 on 2019/6/28.
  */
 
 public class ShopCartGoodAdapter extends BaseQuickAdapter<ShopCartGoodBean,BaseViewHolder> {

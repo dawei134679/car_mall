@@ -6,7 +6,7 @@
     tools:context="com.hkkj.carmall.user.fragment.UserFragment">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:gravity="center"
         android:text="个人中心"
         style="@style/top_title_style"
@@ -29,13 +29,14 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="20dp">
-                <ImageButton
+                <ImageView
                     android:id="@+id/ib_user_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/user_head_image" />
+                    android:src="@drawable/user_head_image" />
                 <TextView
+                    android:id="@+id/ib_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="小阿狸, 你好!"

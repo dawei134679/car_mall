@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_evaluate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hkkj.carmall.order.activity.EvaluateActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/ib_ae_back"
+            style="@style/top_back_style"
+            android:background="@drawable/top_bar_left_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="评价"
+            style="@style/top_title_style" />
+    </RelativeLayout>
+    <View style="@style/Line_e0e0e0_Horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="宝贝评价:"
+        android:textColor="@color/emphasisTextview"/>
+
+    <EditText
+        android:id="@+id/et_ae_order_evaluate"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:padding="5dp"
+        android:hint="请输入评价..."
+        android:inputType="textMultiLine"
+        android:gravity="left|top"
+        android:maxLines="5"
+        android:background="@drawable/shape_corner_logion"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="商品服务:"
+            android:textColor="@color/emphasisTextview"/>
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/et_ae_order_spfw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:padding="5dp"
+            app:mrb_progressTint="@color/spcOrange"
+            app:mrb_secondaryProgressTint="@color/spcOrange"
+            style="@style/Widget.MaterialRatingBar.RatingBar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:textColor="@color/emphasisTextview"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="服务态度:"
+            android:textColor="@color/emphasisTextview"/>
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/et_ae_order_fwtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:padding="5dp"
+            app:mrb_progressTint="@color/spcOrange"
+            app:mrb_secondaryProgressTint="@color/spcOrange"
+            style="@style/Widget.MaterialRatingBar.RatingBar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:textColor="@color/emphasisTextview"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_ae_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:background="@color/spcOrange"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:text="发布"/>
+
+</LinearLayout>

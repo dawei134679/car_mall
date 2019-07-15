@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,15 +15,23 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.base.BaseFragment;
 import com.hkkj.carmall.utils.CheckPermissionUtils;
+import com.hkkj.carmall.utils.Constants;
+import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.ToastUtils;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Call;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -67,6 +77,48 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         initFragment();
         initListener();
         return view;
+    }
+
+    @Override
+    public void initData() {
+
+        OkHttpUtils
+            .post()
+            .headers(HeadersUtils.getHeaders())
+            .url(Constants.GET_USER_INFO)
+            .id(100)
+            .build()
+            .execute(new StringCallback() {
+                @Override
+                public void onError(Call call, Exception e, int id) {
+                    Log.e("TAG", "联网失败" + e.getMessage());
+                }
+
+                @Override
+                public void onResponse(String response, int id) {
+                    switch (id) {
+                        case 100:
+                            if (response != null) {
+                                processData(response);
+                            }
+                            break;
+                        case 101:
+                            break;
+                    }
+                }
+            });
+    }
+    private void processData(String json) {
+        if (!TextUtils.isEmpty(json)) {
+            JSONObject jsonObject = JSON.parseObject(json);
+            //得到状态码
+            String code = jsonObject.getString("code");
+            if ("200".equals(code)){
+
+            }else {
+                ToastUtils.showMessage("获取个人信息失败失败");
+            }
+        }
     }
 
     /**
@@ -187,12 +239,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         Toast.makeText(mContext, "执行onPermissionsDenied()...", Toast.LENGTH_SHORT).show();
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             new AppSettingsDialog.Builder(this, "当前App需要申请camera权限,需要打开设置页面么?")
-                    .setTitle("权限申请")
-                    .setPositiveButton("确认")
-                    .setNegativeButton("取消", null /* click listener */)
-                    .setRequestCode(REQUEST_CAMERA_PERM)
-                    .build()
-                    .show();
+                .setTitle("权限申请")
+                .setPositiveButton("确认")
+                .setNegativeButton("取消", null /* click listener */)
+                .setRequestCode(REQUEST_CAMERA_PERM)
+                .build()
+                .show();
         }
     }
 }

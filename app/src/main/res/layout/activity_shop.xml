@@ -155,15 +155,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_user_yggzt"
                 style="@style/TextStyle"
                 android:drawableRight="@drawable/user_arrow_icon"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="10dp"
-                android:text="优惠券:" />
+                android:text="优惠券:" />-->
 
-            <LinearLayout
+           <!-- <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/bg_color"
@@ -214,7 +214,7 @@
                     android:padding="5dp"
                     android:layout_marginRight="25dp"
                     android:text="立即下单" />
-            </LinearLayout>
+            </LinearLayout>-->
         </LinearLayout>
 
     </ScrollView>

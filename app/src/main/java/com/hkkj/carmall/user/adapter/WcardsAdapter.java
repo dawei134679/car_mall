@@ -11,7 +11,7 @@ import com.hkkj.carmall.user.bean.WcardsBean;
 import java.util.List;
 
 /**
- * Created by Administrator on 2019/6/26.
+ * Created by 李大为 on 2019/6/26.
  */
 
 public class WcardsAdapter extends BaseQuickAdapter<WcardsBean,BaseViewHolder> {

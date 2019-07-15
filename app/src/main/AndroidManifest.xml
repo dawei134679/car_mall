@@ -17,6 +17,10 @@
     <!-- 允许使用相机 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于提高GPS定位速度 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -26,7 +30,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -35,14 +39,13 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="c840bb37a57c884fba2ef3dfe1009dc0" />
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".user.activity.CollectActivity" />
         <activity android:name=".user.activity.WarrantyCardActivity" />
 
@@ -59,7 +62,13 @@
             android:name=".activity.EmployeePlatformActivity"
             android:label="@string/title_activity_employee_platform" />
         <activity android:name=".activity.ProjectRuleActivity" />
-        <activity android:name=".activity.LogionActivity"></activity>
+
+        <activity android:name=".merchant.StoreManageActivity" />
+        <activity android:name=".merchant.GoodsManageActivity" />
+        <activity android:name=".order.activity.EvaluateActivity" />
+        <activity android:name=".merchant.ManageOfProjectServiceActivity" />
+        <activity android:name=".merchant.InviteEmployeeActivity" />
+        <activity android:name=".activity.SettlementActivity"></activity>
     </application>
 
 </manifest>

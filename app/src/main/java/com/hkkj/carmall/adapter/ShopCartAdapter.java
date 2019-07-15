@@ -13,7 +13,7 @@ import com.hkkj.carmall.bean.ShopCartBean;
 import java.util.List;
 
 /**
- * Created by Administrator on 2019/6/28.
+ * Created by 李大为 on 2019/6/28.
  */
 
 public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolder> {

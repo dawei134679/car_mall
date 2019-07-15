@@ -3,7 +3,7 @@ package com.hkkj.carmall.utils;
 import android.support.v7.widget.RecyclerView;
 
 /**
- * Created by Administrator on 2019/7/3.
+ * Created by 李大为 on 2019/7/3.
  */
 
 public class MaxRecyclerView extends RecyclerView {

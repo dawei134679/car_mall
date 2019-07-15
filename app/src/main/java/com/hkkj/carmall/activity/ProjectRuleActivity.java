@@ -1,7 +1,7 @@
 package com.hkkj.carmall.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ProjectRuleActivity extends AppCompatActivity {
+public class ProjectRuleActivity extends Activity {
     @Bind(R.id.ib_project_rule_back)
     ImageButton ibPrBack;
 

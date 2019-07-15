@@ -33,11 +33,18 @@
         android:layout_marginLeft="10dp"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tv_mp_manage"
+            android:id="@+id/tv_mp_storeManage"
             style="@style/TextStyle"
             android:drawableLeft="@drawable/merchant_sjgl_icon"
             android:drawableRight="@drawable/user_arrow_icon"
-            android:text="商家管理" />
+            android:text="店铺管理" />
+        <View style="@style/Line_e0e0e0_Horizontal"/>
+        <TextView
+            android:id="@+id/tv_mp_goodsManage"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_sjgl_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="商品管理" />
         <View style="@style/Line_e0e0e0_Horizontal"/>
         <TextView
             android:id="@+id/tv_mp_yqyg"
@@ -59,7 +66,7 @@
             style="@style/TextStyle"
             android:drawableLeft="@drawable/merchant_ddgl_icon"
             android:drawableRight="@drawable/user_arrow_icon"
-            android:text="轮胎抵扣卷" />
+            android:text="订单管理" />
     </LinearLayout>
 
 </LinearLayout>

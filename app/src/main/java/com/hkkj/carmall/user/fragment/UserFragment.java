@@ -2,27 +2,40 @@ package com.hkkj.carmall.user.fragment;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.activity.EmployeePlatformActivity;
 import com.hkkj.carmall.activity.GoodsInfoActivity;
 import com.hkkj.carmall.activity.IncreasedTicketActivity;
-import com.hkkj.carmall.activity.LogionActivity;
+import com.hkkj.carmall.activity.LoginActivity;
 import com.hkkj.carmall.activity.MerchantPlatformActivity;
 import com.hkkj.carmall.activity.ProjectRuleActivity;
 import com.hkkj.carmall.activity.ShopActivity;
 import com.hkkj.carmall.activity.ShopCartActivity;
 import com.hkkj.carmall.base.BaseFragment;
+import com.hkkj.carmall.order.activity.EvaluateActivity;
 import com.hkkj.carmall.user.activity.CollectActivity;
 import com.hkkj.carmall.user.activity.WarrantyCardActivity;
+import com.hkkj.carmall.utils.Constants;
+import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.ToastUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.Call;
 
 
 public class UserFragment extends BaseFragment implements View.OnClickListener {
+
+    private ImageView userIcon;
     private TextView tvUserCollect;
     private TextView tvUserZbk;
     private TextView tvUserDkj;
@@ -43,6 +56,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void findViews(View view) {
+        userIcon =view.findViewById(R.id.ib_user_icon);
         tvUserCollect = view.findViewById(R.id.tv_user_collect);
         tvUserZbk = view.findViewById(R.id.tv_user_zbk);
         tvUserDkj = view.findViewById(R.id.tv_user_dkj);
@@ -56,6 +70,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvUserYggzt = view.findViewById(R.id.tv_user_yggzt);
         userLogoinOut = view.findViewById(R.id.user_logoin_out);
 
+        userIcon.setOnClickListener(this);
         tvUserCollect.setOnClickListener(this);
         tvUserZbk.setOnClickListener(this);
         tvUserDkj.setOnClickListener(this);
@@ -81,53 +96,69 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         }else if (v == tvUserDkj ){
             Intent intent = new Intent(mContext, ShopActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "轮胎抵扣卷", Toast.LENGTH_SHORT).show();
-            Log.e("A","轮胎抵扣卷");*/
         }else if (v == tvUserZpzz ){
             Intent intent = new Intent(mContext, IncreasedTicketActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "增票资质", Toast.LENGTH_SHORT).show();
-            Log.e("A","增票资质");*/
         }else if (v == tvUserFpgl ){
             Intent intent = new Intent(mContext, GoodsInfoActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "发票管理", Toast.LENGTH_SHORT).show();
-            Log.e("A","发票管理");*/
         }else if (v == tvUserJjgz ){
             Intent intent = new Intent(mContext, ProjectRuleActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "计价规则", Toast.LENGTH_SHORT).show();
-            Log.e("A","计价规则");*/
         }else if (v == tvUserYqhy ){
-            Toast.makeText(mContext, "邀请好友", Toast.LENGTH_SHORT).show();
-            Log.e("A","邀请好友");
+            Intent intent = new Intent(mContext, EvaluateActivity.class);
+            startActivity(intent);
         }else if (v == tvUserPtdh ){
             Intent intent = new Intent(mContext, ShopCartActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "平台电话", Toast.LENGTH_SHORT).show();
-            Log.e("A","平台电话");*/
         }else if (v == tvUserLxpt ){
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=532231254&version=1")));
-
-           /* Toast.makeText(mContext, "联系平台", Toast.LENGTH_SHORT).show();
-            Log.e("A","联系平台");*/
         }else if (v == tvUserSjgzt ){
             Intent intent = new Intent(mContext, MerchantPlatformActivity.class);
             startActivity(intent);
-           /* Toast.makeText(mContext, "商家工作台", Toast.LENGTH_SHORT).show();
-            Log.e("A","商家工作台");*/
         }else if (v == tvUserYggzt ){
             Intent intent = new Intent(mContext, EmployeePlatformActivity.class);
             startActivity(intent);
-            /*Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
-            Log.e("A","员工工作台");*/
         }else if (v == userLogoinOut ){
-            Intent intent = new Intent(mContext, LogionActivity.class);
-            startActivity(intent);
-            /*Toast.makeText(mContext, "员工工作台", Toast.LENGTH_SHORT).show();
-            Log.e("A","员工工作台");*/
+            //退出登录
+            logout();
+        }else if (v == userIcon ){
+          /*  Intent intent = new Intent(mContext, SelectPhotoActivity.class);
+             startActivity(intent);*/
         }
     }
-
+    public void logout() {
+        OkHttpUtils.post().headers(HeadersUtils.getHeaders()).url(Constants.LOGOUT).id(100).build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                Log.e("TAG", "联网失败" + e.getMessage());
+            }
+            @Override
+            public void onResponse(String response, int id) {
+                switch (id) {
+                    case 100:
+                        if (response != null) {
+                            processData(response);
+                        }
+                        break;
+                    case 101:
+                        break;
+                }
+            }
+        });
+    }
+    private void processData(String json) {
+        if (!TextUtils.isEmpty(json)) {
+            JSONObject jsonObject = JSON.parseObject(json);
+            //得到状态码
+            String code = jsonObject.getString("code");
+            if ("200".equals(code)){
+                Intent intent = new Intent(mContext, LoginActivity.class);
+                startActivity(intent);
+            }else {
+                ToastUtils.showMessage("退出失败");
+            }
+        }
+    }
 
 }
