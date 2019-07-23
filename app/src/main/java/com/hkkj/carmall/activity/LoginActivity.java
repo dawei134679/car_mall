@@ -73,7 +73,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("mobile",phoneNum);
             params.put("smsCode",password);
-            OkHttpUtils.post().params(params).url(Constants.LOGION_URL).id(100).build().execute(new StringCallback() {
+            OkHttpUtils.post().params(params).url(Constants.LOGIN_URL).id(100).build().execute(new StringCallback() {
                 @Override
                 public void onError(Call call, Exception e, int id) {
                     Log.e("TAG", "联网失败" + e.getMessage());

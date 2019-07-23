@@ -50,23 +50,6 @@ public class ProjectRuleActivity extends Activity {
 
     private void initData() {
         datas = new ArrayList<ServiceProjectBean>();
-        ServiceProjectBean serviceProjectBean1 = new ServiceProjectBean(1,"换备胎",30.0);
-        ServiceProjectBean serviceProjectBean2 = new ServiceProjectBean(2,"补大胎",20.0);
-        ServiceProjectBean serviceProjectBean3 = new ServiceProjectBean(3,"倒轮",20.0);
-        ServiceProjectBean serviceProjectBean4 = new ServiceProjectBean(4,"换机油",30.0);
-        ServiceProjectBean serviceProjectBean5 = new ServiceProjectBean(5,"换燃油",20.0);
-        ServiceProjectBean serviceProjectBean6 = new ServiceProjectBean(6,"打黄油",20.0);
-        ServiceProjectBean serviceProjectBean7 = new ServiceProjectBean(7,"补小胎",10.0);
-        ServiceProjectBean serviceProjectBean8 = new ServiceProjectBean(8,"动平衡",40.0);
-        ServiceProjectBean serviceProjectBean9 = new ServiceProjectBean(10,"充氮气",100.0);
-        datas.add(serviceProjectBean1);
-        datas.add(serviceProjectBean2);
-        datas.add(serviceProjectBean3);
-        datas.add(serviceProjectBean4);
-        datas.add(serviceProjectBean5);
-        datas.add(serviceProjectBean6);
-        datas.add(serviceProjectBean7);
-        datas.add(serviceProjectBean8);
-        datas.add(serviceProjectBean9);
+
     }
 }

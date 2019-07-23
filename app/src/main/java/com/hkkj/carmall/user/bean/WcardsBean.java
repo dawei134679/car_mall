@@ -5,40 +5,74 @@ package com.hkkj.carmall.user.bean;
  */
 
 public class WcardsBean {
-    public String imageUrl;
-    public String cardName;
-    public Integer status;
-    public long validTime;
 
-    public String getImageUrl() {
-        return imageUrl;
+    private Long id;
+
+    private String name;
+
+    private Long commodityId;
+
+    private Long createTime;
+
+    private Long endTime;
+
+    private Long userId;
+
+    private Long validTime;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getCardName() {
-        return cardName;
+    public String getName() {
+        return name;
     }
 
-    public void setCardName(String cardName) {
-        this.cardName = cardName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Long getCommodityId() {
+        return commodityId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setCommodityId(Long commodityId) {
+        this.commodityId = commodityId;
     }
 
-    public long getValidTime() {
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Long endTime) {
+        this.endTime = endTime;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getValidTime() {
         return validTime;
     }
 
-    public void setValidTime(long validTime) {
+    public void setValidTime(Long validTime) {
         this.validTime = validTime;
     }
 }

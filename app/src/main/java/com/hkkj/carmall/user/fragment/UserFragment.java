@@ -13,13 +13,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.activity.EmployeePlatformActivity;
-import com.hkkj.carmall.activity.GoodsInfoActivity;
 import com.hkkj.carmall.activity.IncreasedTicketActivity;
 import com.hkkj.carmall.activity.LoginActivity;
 import com.hkkj.carmall.activity.MerchantPlatformActivity;
 import com.hkkj.carmall.activity.ProjectRuleActivity;
 import com.hkkj.carmall.activity.SelectPhotoActivity;
-import com.hkkj.carmall.activity.ShopActivity;
 import com.hkkj.carmall.activity.ShopCartActivity;
 import com.hkkj.carmall.base.BaseFragment;
 import com.hkkj.carmall.order.activity.EvaluateActivity;
@@ -98,14 +96,12 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             Intent intent = new Intent(mContext, WarrantyCardActivity.class);
             startActivity(intent);
         }else if (v == tvUserDkj ){
-            Intent intent = new Intent(mContext, ShopActivity.class);
-            startActivity(intent);
+            ToastUtils.showMessage("此功能暂未开放");;
         }else if (v == tvUserZpzz ){
             Intent intent = new Intent(mContext, IncreasedTicketActivity.class);
             startActivity(intent);
         }else if (v == tvUserFpgl ){
-            Intent intent = new Intent(mContext, GoodsInfoActivity.class);
-            startActivity(intent);
+            ToastUtils.showMessage("此功能暂未开放");;
         }else if (v == tvUserJjgz ){
             Intent intent = new Intent(mContext, ProjectRuleActivity.class);
             startActivity(intent);
@@ -132,7 +128,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         }
     }
     public void logout() {
-        OkHttpUtils.post().headers(HeadersUtils.getHeaders()).url(Constants.LOGOUT).id(100).build().execute(new StringCallback() {
+        OkHttpUtils.post().headers(HeadersUtils.getHeaders(null)).url(Constants.LOGOUT).id(100).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
                 Log.e("TAG", "联网失败" + e.getMessage());

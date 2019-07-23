@@ -1,22 +1,35 @@
 package com.hkkj.carmall;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.hkkj.carmall.activity.LoginActivity;
 import com.hkkj.carmall.base.BaseFragment;
 import com.hkkj.carmall.home.fragment.HomeFragment;
 import com.hkkj.carmall.order.fragment.OrderFragment;
 import com.hkkj.carmall.user.fragment.UserFragment;
+import com.hkkj.carmall.utils.Config;
+import com.hkkj.carmall.utils.Constants;
+import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.UtilSharedPreference;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 public class MainActivity extends FragmentActivity {
     @Bind(R.id.frameLayout)
@@ -38,9 +51,57 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getUserInfo();
         initFragment();
         initListener();
     }
+    private void getUserInfo() {
+
+        String token = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.TOKEN);
+        if (token == null){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }else {
+            OkHttpUtils
+                    .post()
+                    .headers(HeadersUtils.getHeaders(null))
+                    .url(Constants.GET_USER_INFO)
+                    .id(100)
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e, int id) {
+                            Log.e("TAG", "联网失败" + e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response, int id) {
+                            switch (id) {
+                                case 100:
+                                    if (response != null) {
+                                        processData(response);
+                                    }
+                                    break;
+                                case 101:
+                                    break;
+                            }
+                        }
+                    });
+        }
+    }
+    private void processData(String json) {
+        if (!TextUtils.isEmpty(json)) {
+            JSONObject jsonObject = JSON.parseObject(json);
+            //得到状态码
+            Integer code = Integer.valueOf(jsonObject.getString("code"));
+            if(code > 4000){
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            }
+        }
+    }
+
+
     private void initFragment() {
         fragments = new ArrayList<>();
         fragments.add(new HomeFragment());

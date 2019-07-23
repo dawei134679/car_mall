@@ -77,7 +77,7 @@
                     android:id="@+id/tv_shop_collect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/collect_icon"
+                    android:drawableLeft="@drawable/collection_icon_no"
                     android:drawablePadding="5dp"
                     android:textColor="@color/defaultTextview"
                     android:textSize="15dp"

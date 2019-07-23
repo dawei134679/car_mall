@@ -1,48 +1,39 @@
 package com.hkkj.carmall.bean;
 
+import java.math.BigDecimal;
+
 /**
  * Created by 李大为 on 2019/7/1.
  */
 
 public class ServiceProjectBean {
-    public Integer id;
+    public Long serviceItemId;
 
-    public  String name;
+    public  String serviceItemName;
 
-    public Double price;
+    public BigDecimal serviceItemAmount;
 
-    public ServiceProjectBean(Integer id, String name) {
-        this.id = id;
-        this.name = name;
+    public Long getServiceItemId() {
+        return serviceItemId;
     }
 
-    public ServiceProjectBean(Integer id, String name, Double price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
+    public void setServiceItemId(Long serviceItemId) {
+        this.serviceItemId = serviceItemId;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getServiceItemName() {
+        return serviceItemName;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setServiceItemName(String serviceItemName) {
+        this.serviceItemName = serviceItemName;
     }
 
-    public Integer getId() {
-        return id;
+    public BigDecimal getServiceItemAmount() {
+        return serviceItemAmount;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setServiceItemAmount(BigDecimal serviceItemAmount) {
+        this.serviceItemAmount = serviceItemAmount;
     }
 }

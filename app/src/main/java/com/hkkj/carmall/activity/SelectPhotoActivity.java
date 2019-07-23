@@ -112,7 +112,7 @@ public class SelectPhotoActivity extends Activity {
     private void uploadHeadImg(File file) {
         OkHttpUtils
                 .post()
-                .headers(HeadersUtils.getHeaders())
+                .headers(HeadersUtils .getHeaders(null))
                 .addFile("file",file.getName() ,file)
                 .url(Constants.DO_UPLOAD)
                 .id(100)

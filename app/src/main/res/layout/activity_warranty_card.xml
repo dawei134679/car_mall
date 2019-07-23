@@ -11,7 +11,7 @@
         android:padding="10dp"
         android:layout_gravity="center_vertical">
         <ImageButton
-            android:id="@+id/ib_back"
+            android:id="@+id/ib_wc_back"
             style="@style/top_back_style"
             android:background="@drawable/top_bar_left_back" />
 
@@ -22,6 +22,7 @@
             android:text="质保卡"
             style="@style/top_title_style" />
     </RelativeLayout>
+
     <RadioGroup
         android:id="@+id/rg_warranty_card"
         android:layout_width="match_parent"

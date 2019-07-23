@@ -39,21 +39,20 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="c840bb37a57c884fba2ef3dfe1009dc0" />
-
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".user.activity.CollectActivity" />
         <activity android:name=".user.activity.WarrantyCardActivity" />
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".activity.ShopActivity" />
+        <activity android:name=".activity.ShopActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity android:name=".activity.GoodsInfoActivity" />
         <activity
             android:name=".activity.ShopCartActivity"

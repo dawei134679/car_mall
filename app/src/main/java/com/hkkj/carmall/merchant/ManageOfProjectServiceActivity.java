@@ -53,7 +53,7 @@ public class ManageOfProjectServiceActivity extends Activity {
             }
         });
         sdatas = new ArrayList<ServiceProjectBean>();
-        ServiceProjectBean serviceProjectBean1 = new ServiceProjectBean(1,"换备胎");
+        /*ServiceProjectBean serviceProjectBean1 = new ServiceProjectBean(1,"换备胎");
         ServiceProjectBean serviceProjectBean2 = new ServiceProjectBean(2,"补大胎");
         ServiceProjectBean serviceProjectBean3 = new ServiceProjectBean(3,"倒轮");
         ServiceProjectBean serviceProjectBean4 = new ServiceProjectBean(4,"换机油");
@@ -70,6 +70,6 @@ public class ManageOfProjectServiceActivity extends Activity {
         sdatas.add(serviceProjectBean6);
         sdatas.add(serviceProjectBean7);
         sdatas.add(serviceProjectBean8);
-        sdatas.add(serviceProjectBean9);
+        sdatas.add(serviceProjectBean9);*/
     }
 }

@@ -19,6 +19,6 @@ public class ManageOfServiceProjectAdapter extends BaseQuickAdapter<ServiceProje
 
     @Override
     protected void convert(BaseViewHolder helper, ServiceProjectBean item) {
-        helper.setText(R.id.imosp_projectName,item.getName());
+        helper.setText(R.id.imosp_projectName,item.getServiceItemName());
     }
 }

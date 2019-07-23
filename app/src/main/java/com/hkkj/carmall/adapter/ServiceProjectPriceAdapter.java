@@ -21,6 +21,6 @@ public class ServiceProjectPriceAdapter extends BaseQuickAdapter<ServiceProjectB
 
     @Override
     protected void convert(BaseViewHolder helper, ServiceProjectBean item) {
-        helper.setText(R.id.tv_pra_project_name,item.getName()).setText(R.id.tv_pra_project_price,item.getPrice().toString());
+        helper.setText(R.id.tv_pra_project_name,item.getServiceItemName()).setText(R.id.tv_pra_project_price,item.getServiceItemAmount().toString());
     }
 }

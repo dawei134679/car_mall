@@ -2,24 +2,34 @@ package com.hkkj.carmall.user.fragment;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.base.BaseFragment;
-import com.hkkj.carmall.user.adapter.CommodityAdapter;
-import com.hkkj.carmall.user.bean.CommodityBean;
+import com.hkkj.carmall.user.adapter.CollectCommodityAdapter;
+import com.hkkj.carmall.user.bean.CollectBean;
+import com.hkkj.carmall.utils.Constants;
+import com.hkkj.carmall.utils.HeadersUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import okhttp3.Call;
 
 
 public class CommodityFragment extends BaseFragment {
 
     private RecyclerView rvCommodity;
 
-    private CommodityAdapter commodityAdapter;
+    private CollectCommodityAdapter commodityAdapter;
 
-    private List<CommodityBean> datas;
+    private List<CollectBean> datas;
 
     @Override
     public View initView() {
@@ -27,25 +37,49 @@ public class CommodityFragment extends BaseFragment {
         rvCommodity = view.findViewById(R.id.rv_commodity);
         rvCommodity.setLayoutManager(new GridLayoutManager(mContext, 2, GridLayoutManager.VERTICAL, false));
         initData();
-        commodityAdapter = new CommodityAdapter(R.layout.item_commodity, datas);
-        rvCommodity.setAdapter(commodityAdapter);
         return view;
     }
 
     @Override
     public void initData() {
-        datas = new ArrayList<CommodityBean>();
-        CommodityBean commodityBean1 = new CommodityBean();
-        commodityBean1.setDescribe("商品1");
-        commodityBean1.setPrice(555.0);
-        CommodityBean commodityBean2 = new CommodityBean();
-        commodityBean2.setDescribe("商品2");
-        commodityBean2.setPrice(100.0);
-        CommodityBean commodityBean3 = new CommodityBean();
-        commodityBean3.setDescribe("商品3");
-        commodityBean3.setPrice(55.0);
-        datas.add(commodityBean1);
-        datas.add(commodityBean2);
-        datas.add(commodityBean3);
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("favoriteType",String.valueOf(2));
+        OkHttpUtils
+            .post()
+            .headers(HeadersUtils.getHeaders(params))
+            .params(params)
+            .url(Constants.GET_FAVORITE_LIST)
+            .id(100)
+            .build()
+            .execute(new StringCallback() {
+                @Override
+                public void onError(Call call, Exception e, int id) {
+                    Log.e("TAG", "收藏商品联网失败" + e.getMessage());
+                }
+
+                @Override
+                public void onResponse(String response, int id) {
+                    switch (id) {
+                        case 100:
+                            if (response != null) {
+                                if (!TextUtils.isEmpty(response)) {
+                                    JSONObject jsonObject = JSON.parseObject(response);
+                                    //得到状态码
+                                    String code = jsonObject.getString("code");
+                                    if ("200".equals(code)){
+                                        datas = JSON.parseArray(jsonObject.getJSONObject("data").get("list").toString(), CollectBean.class);
+                                        commodityAdapter = new CollectCommodityAdapter(R.layout.item_commodity, datas);
+                                        rvCommodity.setAdapter(commodityAdapter);
+                                    }else {
+                                        Log.e("e", "获取收藏商品异常");
+                                    }
+                                }
+                            }
+                            break;
+                        case 101:
+                            break;
+                    }
+                }
+            });
     }
 }
