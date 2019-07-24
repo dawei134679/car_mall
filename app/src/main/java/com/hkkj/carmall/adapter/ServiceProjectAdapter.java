@@ -21,7 +21,7 @@ public class ServiceProjectAdapter extends BaseQuickAdapter<ServiceProjectBean,B
 
     @Override
     protected void convert(BaseViewHolder helper, ServiceProjectBean item) {
-        helper.setText(R.id.tv_project_name, item.getServiceItemName());
+        helper.setText(R.id.tv_project_name, item.getServiceItemName()).setText(R.id.tv_project_num, item.getNum().toString());
         helper.addOnClickListener(R.id.iv_shop_project_sub);
         helper.addOnClickListener(R.id.iv_shop_project_add);
         helper.addOnClickListener(R.id.tv_project_num);

@@ -145,7 +145,8 @@ public class ScarFragment extends BaseFragment implements AMapLocationListener, 
         if (mListener != null && aMapLocation != null) {
             if (aMapLocation != null && aMapLocation.getErrorCode() == 0) {
                 mListener.onLocationChanged(aMapLocation);// 显示系统小蓝点
-                tvAdress.setText(aMapLocation.getAddress());
+                tvAdress.setText(aMapLocation.getAddress()+aMapLocation.getAdCode());
+
                 //调后台接口,展示附近商铺
                 getShopList(aMapLocation.getLatitude(),aMapLocation.getLongitude(),1);
             } else {

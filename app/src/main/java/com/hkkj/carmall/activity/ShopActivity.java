@@ -20,17 +20,22 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.hkkj.carmall.MyApplication;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.adapter.ServiceProjectAdapter;
+import com.hkkj.carmall.bean.CategoryBean;
 import com.hkkj.carmall.bean.CommodityBean;
 import com.hkkj.carmall.bean.IdOfNumBean;
 import com.hkkj.carmall.bean.ServiceProjectBean;
 import com.hkkj.carmall.home.bean.ShopInfoBean;
 import com.hkkj.carmall.user.adapter.CommodityAdapter;
+import com.hkkj.carmall.utils.Config;
 import com.hkkj.carmall.utils.Constants;
 import com.hkkj.carmall.utils.GlideImageLoader;
 import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.StringUtils;
 import com.hkkj.carmall.utils.ToastUtils;
+import com.hkkj.carmall.utils.UtilSharedPreference;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -47,6 +52,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
+
+import static com.alibaba.fastjson.JSON.parseArray;
 
 public class ShopActivity extends Activity {
 
@@ -85,6 +92,7 @@ public class ShopActivity extends Activity {
 
     List<IdOfNumBean> inDatas = new ArrayList<IdOfNumBean>();
 
+    List<CategoryBean> cdatas = new ArrayList<CategoryBean>();
 
 
 
@@ -209,6 +217,49 @@ public class ShopActivity extends Activity {
         getCommodityList();
 
         getServiceProject();
+
+        getCategoryList();
+    }
+
+    //获取商品分类
+    private void getCategoryList() {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("shopId",shopId);
+        OkHttpUtils
+                .post()
+                .headers(HeadersUtils.getHeaders(params))
+                .params(params)
+                .url(Constants.get_category_ListBy_ShopId)
+                .id(100)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("TAG", "联网失败" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        switch (id) {
+                            case 100:
+                                if (response != null) {
+                                    if (!TextUtils.isEmpty(response)) {
+                                        JSONObject jsonObject = JSON.parseObject(response);
+                                        //得到状态码
+                                        String code = jsonObject.getString("code");
+                                        if ("200".equals(code)){
+                                            cdatas = parseArray(jsonObject.get("data").toString(), CategoryBean.class);
+                                        }else {
+                                            Log.e("e", "获取商品分类列表详情异常");
+                                        }
+                                    }
+                                }
+                                break;
+                            case 101:
+                                break;
+                        }
+                    }
+                });
     }
 
     //获取服务项目列表
@@ -238,11 +289,32 @@ public class ShopActivity extends Activity {
                                     //得到状态码
                                     String code = jsonObject.getString("code");
                                     if ("200".equals(code)){
-                                        sdatas = JSON.parseArray(jsonObject.get("data").toString(), ServiceProjectBean.class);
+                                        String sdatasStr = jsonObject.get("data").toString();
+
+                                        //存服务列表
+                                        UtilSharedPreference.saveString(getApplicationContext(), Config.SERVIC_EPROJECT_LIST, sdatasStr);
+
+                                        sdatas = parseArray(sdatasStr, ServiceProjectBean.class);
+
+                                        //初始化
+                                        String cartListStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CARTLIST);
+                                        if(!StringUtils.isEmpty(cartListStr)){
+                                            inDatas = JSON.parseArray(cartListStr,IdOfNumBean.class);
+                                            if(inDatas.size() > 0){
+                                                for(IdOfNumBean inBean : inDatas){
+                                                    for (ServiceProjectBean spBean : sdatas){
+                                                        if (spBean.getServiceItemId() == inBean.getId()){
+                                                            spBean.setNum(inBean.getNum());
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
                                         serviceProjectAdapter = new ServiceProjectAdapter(R.layout.item_service_project,sdatas);
                                         rvShopServiceProjects.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL,false));
                                         rvShopServiceProjects.setAdapter(serviceProjectAdapter);
-
                                         rvShopServiceProjects.addOnItemTouchListener(new OnItemChildClickListener() {
                                             @Override
                                             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -252,10 +324,13 @@ public class ShopActivity extends Activity {
                                             @Override
                                             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                                                 super.onItemChildClick(adapter, view, position);
+                                                ServiceProjectBean serviceProjectItem = sdatas.get(position);
                                                 LinearLayout parent = (LinearLayout)view.getParent();
                                                 TextView tvNum = (TextView) parent.findViewById(R.id.tv_project_num);
                                                 Integer num = Integer.valueOf(tvNum.getText().toString());
                                                 int itemViewId = view.getId();
+
+                                                IdOfNumBean idOfNumBean = new IdOfNumBean();
 
                                                 switch (itemViewId){
                                                     case R.id.iv_shop_project_sub:
@@ -265,11 +340,38 @@ public class ShopActivity extends Activity {
                                                         }
                                                         num--;
                                                         tvNum.setText(String.valueOf(num));
+                                                        for (int i = 0; i < inDatas.size(); i++) {
+                                                            if (inDatas.get(i).getId() ==serviceProjectItem.getServiceItemId()){
+                                                                if(num == 0){
+                                                                    inDatas.remove(i);
+                                                                }else{
+                                                                    inDatas.get(i).setNum(num);
+                                                                    break;
+                                                                }
+                                                            }
+                                                        }
+                                                        UtilSharedPreference.saveString(getApplicationContext(), Config.CARTLIST, JSON.toJSONString(inDatas));
                                                         break;
-
                                                     case R.id.iv_shop_project_add:
                                                         num++;
                                                         tvNum.setText(String.valueOf(num));
+                                                        //假设没有
+                                                        boolean flag = true;
+                                                        for (IdOfNumBean inBean : inDatas){
+                                                            if (inBean.getId() ==serviceProjectItem.getServiceItemId()){
+                                                                //修改本地购物车数量
+                                                                inBean.setNum(num);
+                                                                flag = false;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (flag){
+                                                            //插入本地购物车新物品
+                                                            idOfNumBean.setId(serviceProjectItem.getServiceItemId());
+                                                            idOfNumBean.setNum(num);
+                                                            inDatas.add(idOfNumBean);
+                                                        }
+                                                        UtilSharedPreference.saveString(getApplicationContext(), Config.CARTLIST, JSON.toJSONString(inDatas));
                                                         break;
                                                 }
                                             }
@@ -315,7 +417,7 @@ public class ShopActivity extends Activity {
                                     //得到状态码
                                     String code = jsonObject.getString("code");
                                     if ("200".equals(code)){
-                                        datas = JSON.parseArray(jsonObject.getJSONObject("data").get("list").toString(), CommodityBean.class);
+                                        datas = parseArray(jsonObject.getJSONObject("data").get("list").toString(), CommodityBean.class);
                                         commodityAdapter = new CommodityAdapter(R.layout.item_commodity, datas);
                                         rvShopCommodity.setLayoutManager(new GridLayoutManager(mContext, 2, GridLayoutManager.VERTICAL, false));
                                         rvShopCommodity.setAdapter(commodityAdapter);
@@ -437,7 +539,7 @@ public class ShopActivity extends Activity {
                                         //得到状态码
                                         String code = jsonObject.getString("code");
                                         if ("200".equals(code)){
-                                            hotDatas = JSON.parseArray(jsonObject.get("data").toString(), CommodityBean.class);
+                                            hotDatas = parseArray(jsonObject.get("data").toString(), CommodityBean.class);
                                             if (hotDatas != null){
                                                 for (CommodityBean commodity : hotDatas){
                                                     imgUrls.add(commodity.getCommodityImageUrl());

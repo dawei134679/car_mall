@@ -6,5 +6,13 @@ package com.hkkj.carmall.utils;
 
 public class Config {
     public static final String TOKEN = "token";
+
     public static final String PHONE = "phone";
+
+    public static final String CARTLIST = "cartlist";
+
+    public static final String SERVIC_EPROJECT_LIST = "sptlist";
+
+    public static final String USER_INFO = "userInfo";
+
 }

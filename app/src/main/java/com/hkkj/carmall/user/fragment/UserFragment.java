@@ -96,12 +96,12 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             Intent intent = new Intent(mContext, WarrantyCardActivity.class);
             startActivity(intent);
         }else if (v == tvUserDkj ){
-            ToastUtils.showMessage("此功能暂未开放");;
+            ToastUtils.showMessage("此功能暂未开放",5);;
         }else if (v == tvUserZpzz ){
             Intent intent = new Intent(mContext, IncreasedTicketActivity.class);
             startActivity(intent);
         }else if (v == tvUserFpgl ){
-            ToastUtils.showMessage("此功能暂未开放");;
+            ToastUtils.showMessage("此功能暂未开放",5);
         }else if (v == tvUserJjgz ){
             Intent intent = new Intent(mContext, ProjectRuleActivity.class);
             startActivity(intent);

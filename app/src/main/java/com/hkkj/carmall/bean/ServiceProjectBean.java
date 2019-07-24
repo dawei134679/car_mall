@@ -7,11 +7,17 @@ import java.math.BigDecimal;
  */
 
 public class ServiceProjectBean {
-    public Long serviceItemId;
+    private Long serviceItemId;
 
-    public  String serviceItemName;
+    private Integer num = 0;
 
-    public BigDecimal serviceItemAmount;
+    private Integer status;
+
+    private  String serviceItemName;
+
+    private BigDecimal serviceItemAmount;
+
+
 
     public Long getServiceItemId() {
         return serviceItemId;
@@ -21,8 +27,24 @@ public class ServiceProjectBean {
         this.serviceItemId = serviceItemId;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public String getServiceItemName() {
         return serviceItemName;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public void setServiceItemName(String serviceItemName) {

@@ -21,6 +21,7 @@ import com.hkkj.carmall.user.fragment.UserFragment;
 import com.hkkj.carmall.utils.Config;
 import com.hkkj.carmall.utils.Constants;
 import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.ToastUtils;
 import com.hkkj.carmall.utils.UtilSharedPreference;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -94,7 +95,11 @@ public class MainActivity extends FragmentActivity {
             JSONObject jsonObject = JSON.parseObject(json);
             //得到状态码
             Integer code = Integer.valueOf(jsonObject.getString("code"));
+            String userInfoStr = jsonObject.getString("data");
+            UtilSharedPreference.saveString(getApplicationContext(), Config.USER_INFO, userInfoStr);
+
             if(code > 4000){
+                ToastUtils.showMessage("登陆失效,请重新登陆",5);
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             }
