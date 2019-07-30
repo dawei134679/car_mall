@@ -4,9 +4,9 @@ package com.hkkj.carmall.bean;
  * Created by 李大为 on 2019/7/23.
  */
 
-public class IdOfNumBean {
+public class CidOfNumBean {
 
-    /*商品或服务项目ID*/
+    /*商品ID*/
     private Long id;
     /*数量*/
     private Integer num = 0;

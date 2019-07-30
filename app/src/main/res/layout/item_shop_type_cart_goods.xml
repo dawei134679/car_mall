@@ -19,7 +19,7 @@
             android:id="@+id/iv_stcg_good"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:src="@drawable/order_good_icon"
+            android:src="@drawable/service_project"
             android:layout_marginLeft="46dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -39,7 +39,7 @@
             android:textSize="12dp" />
 
         <TextView
-            android:id="@+id/good_price"
+            android:id="@+id/iv_stcg_good_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥200"
@@ -60,10 +60,10 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv_stcg_good"
             android:textSize="12dp"
-            android:layout_below="@+id/good_price" />
+            android:layout_below="@+id/iv_stcg_good_price" />
 
         <CheckBox
-            android:id="@+id/cb_stcg_all"
+            android:id="@+id/cb_stcg_good_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/spc_checkbox_style"

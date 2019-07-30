@@ -25,7 +25,7 @@ import com.hkkj.carmall.R;
 import com.hkkj.carmall.adapter.ServiceProjectAdapter;
 import com.hkkj.carmall.bean.CategoryBean;
 import com.hkkj.carmall.bean.CommodityBean;
-import com.hkkj.carmall.bean.IdOfNumBean;
+import com.hkkj.carmall.bean.SidOfNumBean;
 import com.hkkj.carmall.bean.ServiceProjectBean;
 import com.hkkj.carmall.home.bean.ShopInfoBean;
 import com.hkkj.carmall.user.adapter.CommodityAdapter;
@@ -90,7 +90,7 @@ public class ShopActivity extends Activity {
 
     List<String> imgUrls = new ArrayList<String>();
 
-    List<IdOfNumBean> inDatas = new ArrayList<IdOfNumBean>();
+    List<SidOfNumBean> inDatas = new ArrayList<SidOfNumBean>();
 
     List<CategoryBean> cdatas = new ArrayList<CategoryBean>();
 
@@ -292,16 +292,16 @@ public class ShopActivity extends Activity {
                                         String sdatasStr = jsonObject.get("data").toString();
 
                                         //存服务列表
-                                        UtilSharedPreference.saveString(getApplicationContext(), Config.SERVIC_EPROJECT_LIST, sdatasStr);
+                                        UtilSharedPreference.saveString(getApplicationContext(), Config.SERVICE_PROJECT_LIST, sdatasStr);
 
                                         sdatas = parseArray(sdatasStr, ServiceProjectBean.class);
 
                                         //初始化
-                                        String cartListStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CARTLIST);
+                                        String cartListStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CART_SERVICE_LIST+shopId);
                                         if(!StringUtils.isEmpty(cartListStr)){
-                                            inDatas = JSON.parseArray(cartListStr,IdOfNumBean.class);
+                                            inDatas = JSON.parseArray(cartListStr,SidOfNumBean.class);
                                             if(inDatas.size() > 0){
-                                                for(IdOfNumBean inBean : inDatas){
+                                                for(SidOfNumBean inBean : inDatas){
                                                     for (ServiceProjectBean spBean : sdatas){
                                                         if (spBean.getServiceItemId() == inBean.getId()){
                                                             spBean.setNum(inBean.getNum());
@@ -330,7 +330,7 @@ public class ShopActivity extends Activity {
                                                 Integer num = Integer.valueOf(tvNum.getText().toString());
                                                 int itemViewId = view.getId();
 
-                                                IdOfNumBean idOfNumBean = new IdOfNumBean();
+                                                SidOfNumBean idOfNumBean = new SidOfNumBean();
 
                                                 switch (itemViewId){
                                                     case R.id.iv_shop_project_sub:
@@ -341,7 +341,7 @@ public class ShopActivity extends Activity {
                                                         num--;
                                                         tvNum.setText(String.valueOf(num));
                                                         for (int i = 0; i < inDatas.size(); i++) {
-                                                            if (inDatas.get(i).getId() ==serviceProjectItem.getServiceItemId()){
+                                                            if (inDatas.get(i).getId() == serviceProjectItem.getServiceItemId()){
                                                                 if(num == 0){
                                                                     inDatas.remove(i);
                                                                 }else{
@@ -350,14 +350,14 @@ public class ShopActivity extends Activity {
                                                                 }
                                                             }
                                                         }
-                                                        UtilSharedPreference.saveString(getApplicationContext(), Config.CARTLIST, JSON.toJSONString(inDatas));
+                                                        UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.CART_SERVICE_LIST+shopId, JSON.toJSONString(inDatas));
                                                         break;
                                                     case R.id.iv_shop_project_add:
                                                         num++;
                                                         tvNum.setText(String.valueOf(num));
                                                         //假设没有
                                                         boolean flag = true;
-                                                        for (IdOfNumBean inBean : inDatas){
+                                                        for (SidOfNumBean inBean : inDatas){
                                                             if (inBean.getId() ==serviceProjectItem.getServiceItemId()){
                                                                 //修改本地购物车数量
                                                                 inBean.setNum(num);
@@ -371,12 +371,11 @@ public class ShopActivity extends Activity {
                                                             idOfNumBean.setNum(num);
                                                             inDatas.add(idOfNumBean);
                                                         }
-                                                        UtilSharedPreference.saveString(getApplicationContext(), Config.CARTLIST, JSON.toJSONString(inDatas));
+                                                        UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.CART_SERVICE_LIST+shopId, JSON.toJSONString(inDatas));
                                                         break;
                                                 }
-                                            }
+                                    }
                                         });
-
                                     }else {
                                         Log.e("e", "获取店铺服务项目详情异常");
                                     }

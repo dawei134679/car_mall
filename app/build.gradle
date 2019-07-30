@@ -51,6 +51,7 @@ dependencies {
     compile files('libs/fastjson-1.2.4.jar')
 
     compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.5'
-    
 
+    //弹出框 https://www.jianshu.com/p/e3945c7ec38a
+    compile 'com.github.HanHuoBin:BaseDialog:1.2.0'
 }

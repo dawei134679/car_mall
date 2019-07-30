@@ -97,7 +97,6 @@ public class MainActivity extends FragmentActivity {
             Integer code = Integer.valueOf(jsonObject.getString("code"));
             String userInfoStr = jsonObject.getString("data");
             UtilSharedPreference.saveString(getApplicationContext(), Config.USER_INFO, userInfoStr);
-
             if(code > 4000){
                 ToastUtils.showMessage("登陆失效,请重新登陆",5);
                 Intent intent = new Intent(this, LoginActivity.class);

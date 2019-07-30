@@ -55,5 +55,18 @@ public class Constants {
     /*商家工作台-邀请二维码*/
     public static final String INVITE_EMPLOYEES_QRCODE = BASE + "/front/shop/inviteEmployeesQrcode";
 
+    /*保存分类*/
+    public static final String CATEGORY_SAVE = BASE + "/front/category/save";
+
+    /*修改分类*/
+    public static final String CATEGORY_UPD = BASE + "/front/category/upd";
+
+    /*删除分类*/
+    public static final String CATEGORY_DEL = BASE + "/front/category/del";
+
+    /*保存订单*/
+    public static final String SAVE_AND_PAY_ORDER = BASE + "/front/order/saveAndPayOrder";
+            ;
+
 
 }

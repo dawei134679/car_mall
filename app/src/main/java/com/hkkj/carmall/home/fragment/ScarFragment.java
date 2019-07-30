@@ -214,7 +214,6 @@ public class ScarFragment extends BaseFragment implements AMapLocationListener, 
                         // 返回 true 则表示接口已响应事件，否则返回false
                         @Override
                         public boolean onMarkerClick(Marker marker) {
-
                             Intent intent = new Intent(mContext, ShopActivity.class);
                             Object object = marker.getObject();
                             if (object != null){

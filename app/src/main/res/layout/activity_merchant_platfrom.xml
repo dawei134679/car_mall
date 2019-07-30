@@ -47,6 +47,13 @@
             android:text="商品管理" />
         <View style="@style/Line_e0e0e0_Horizontal"/>
         <TextView
+            android:id="@+id/tv_mp_goodsCategory"
+            style="@style/TextStyle"
+            android:drawableLeft="@drawable/merchant_sjlm_icon"
+            android:drawableRight="@drawable/user_arrow_icon"
+            android:text="商品类目" />
+        <View style="@style/Line_e0e0e0_Horizontal"/>
+        <TextView
             android:id="@+id/tv_mp_yqyg"
             style="@style/TextStyle"
             android:drawableLeft="@drawable/merchant_yqyg_icon"

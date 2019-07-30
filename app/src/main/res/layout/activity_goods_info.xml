@@ -34,19 +34,45 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <com.youth.banner.Banner
-                android:id="@+id/b_goods_info_hBanner"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:indicator_height="5dp"
-                app:indicator_width="5dp"
-                app:is_auto_play="true">
-            </com.youth.banner.Banner>
+                android:layout_height="wrap_content">
+                <com.youth.banner.Banner
+                    android:id="@+id/b_goods_info_hBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:indicator_height="5dp"
+                    app:indicator_width="5dp"
+                    app:is_auto_play="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+                    <ImageView
+                        android:id="@+id/iv_goods_shop_cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shop_cart_icon"
+                        android:layout_gravity="right"
+                        android:layout_margin="10dp"/>
+                </com.youth.banner.Banner>
+                <TextView
+                    android:id="@+id/iv_goods_num_shop_cart"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shop_cart_num_bg"
+                    android:layout_gravity="right"
+                    android:layout_above="@+id/iv_goods_shop_cart"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="8dp"
+                    android:textSize="15dp"
+                    android:textAlignment="center"
+                    android:text="1"/>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_goods_price"
@@ -166,7 +192,7 @@
                     android:text="收藏"/>
 
                 <TextView
-                    android:id="@+id/tv_goods_buy"
+                    android:id="@+id/tv_goods_add"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="20dp"

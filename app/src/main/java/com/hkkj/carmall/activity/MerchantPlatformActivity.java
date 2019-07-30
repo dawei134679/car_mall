@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hkkj.carmall.R;
+import com.hkkj.carmall.merchant.CategoryActivity;
 import com.hkkj.carmall.merchant.GoodsManageActivity;
 import com.hkkj.carmall.merchant.InviteEmployeeActivity;
 import com.hkkj.carmall.merchant.ManageOfProjectServiceActivity;
@@ -25,7 +26,10 @@ public class MerchantPlatformActivity extends Activity implements View.OnClickLi
     TextView mpStore;
 
     @Bind(R.id.tv_mp_goodsManage)
-    TextView mpDoods;
+    TextView mpGoods;
+
+    @Bind(R.id.tv_mp_goodsCategory)
+    TextView mpCategory;
 
     @Bind(R.id.tv_mp_yqyg)
     TextView mpYqyg;
@@ -52,7 +56,8 @@ public class MerchantPlatformActivity extends Activity implements View.OnClickLi
     private void initClick() {
         ibMpBack.setOnClickListener(this);
         mpStore.setOnClickListener(this);
-        mpDoods.setOnClickListener(this);
+        mpGoods.setOnClickListener(this);
+        mpCategory.setOnClickListener(this);
         mpYqyg.setOnClickListener(this);
         mpService.setOnClickListener(this);
         mpOrder.setOnClickListener(this);
@@ -64,11 +69,14 @@ public class MerchantPlatformActivity extends Activity implements View.OnClickLi
             finish();
         }else if (v == mpStore ){
             Toast.makeText(this, "店铺管理", Toast.LENGTH_SHORT).show();
-        }else if (v == mpDoods ){
+        }else if (v == mpGoods ){
             Intent intent = new Intent(this, GoodsManageActivity.class);
             startActivity(intent);
         }else if (v == mpYqyg ){
             Intent intent = new Intent(this, InviteEmployeeActivity.class);
+            startActivity(intent);
+        }else if (v == mpCategory ){
+            Intent intent = new Intent(this, CategoryActivity.class);
             startActivity(intent);
         }else if (v == mpService ){
             Intent intent = new Intent(this, ManageOfProjectServiceActivity.class);

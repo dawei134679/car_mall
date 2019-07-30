@@ -55,7 +55,7 @@ public class ProjectRuleActivity extends Activity {
     }
 
     private void initData() {
-        String sdatasStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.SERVIC_EPROJECT_LIST);
+        String sdatasStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.SERVICE_PROJECT_LIST);
         if(!StringUtils.isEmpty(sdatasStr)){
             datas = parseArray(sdatasStr, ServiceProjectBean.class);
         }

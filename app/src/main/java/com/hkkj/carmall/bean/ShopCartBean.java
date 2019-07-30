@@ -1,5 +1,6 @@
 package com.hkkj.carmall.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,9 +9,11 @@ import java.util.List;
 
 public class ShopCartBean {
 
-    public Integer type;
+    private Integer type;
 
-    public List<ShopCarNameBean> scnDatas;
+    private List<ShopCartGoodBean> scgDatas = new ArrayList<>();
+
+    private boolean checked = false;
 
 
     public Integer getType() {
@@ -21,11 +24,19 @@ public class ShopCartBean {
         this.type = type;
     }
 
-    public List<ShopCarNameBean> getScnDatas() {
-        return scnDatas;
+    public List<ShopCartGoodBean> getScgDatas() {
+        return scgDatas;
     }
 
-    public void setScnDatas(List<ShopCarNameBean> scnDatas) {
-        this.scnDatas = scnDatas;
+    public void setScgDatas(List<ShopCartGoodBean> scgDatas) {
+        this.scgDatas = scgDatas;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }

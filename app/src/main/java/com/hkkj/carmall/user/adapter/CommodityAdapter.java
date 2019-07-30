@@ -26,7 +26,7 @@ public class CommodityAdapter extends BaseQuickAdapter<CommodityBean,BaseViewHol
     @Override
     protected void convert(BaseViewHolder helper, CommodityBean item) {
         helper.setText(R.id.user_tv_commodity_describe,item.getCommodityDescription())
-                .setText(R.id.user_tv_commodity_amount,item.getAmount().toString());
+                .setText(R.id.user_tv_commodity_amount,"￥"+item.getAmount().toString());
         GlideImageUtils.display(mContext,item.getCommodityImageUrl(),(ImageView) helper.getView(user_iv_commodity_imgurl));
         helper.addOnClickListener(R.id.user_iv_commodity_imgurl);
         helper.addOnClickListener(R.id.user_tv_commodity_buy);

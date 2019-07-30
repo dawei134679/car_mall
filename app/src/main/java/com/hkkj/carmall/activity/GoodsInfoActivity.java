@@ -11,12 +11,19 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.hkkj.carmall.MyApplication;
 import com.hkkj.carmall.R;
+import com.hkkj.carmall.bean.CidOfNumBean;
 import com.hkkj.carmall.bean.CommodityBean;
+import com.hkkj.carmall.bean.SidOfNumBean;
+import com.hkkj.carmall.utils.Config;
 import com.hkkj.carmall.utils.Constants;
 import com.hkkj.carmall.utils.GlideImageLoader;
 import com.hkkj.carmall.utils.GlideImageUtils;
 import com.hkkj.carmall.utils.HeadersUtils;
+import com.hkkj.carmall.utils.StringUtils;
+import com.hkkj.carmall.utils.ToastUtils;
+import com.hkkj.carmall.utils.UtilSharedPreference;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -24,16 +31,21 @@ import com.youth.banner.listener.OnBannerListener;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.hkkj.carmall.R.id.b_goods_info_hBanner;
+import static com.hkkj.carmall.R.id.iv_goods_num_shop_cart;
+
 public class GoodsInfoActivity extends Activity {
 
-    @Bind(R.id.b_goods_info_hBanner)
+    @Bind(b_goods_info_hBanner)
     Banner banner;
 
     @Bind(R.id.tv_goods_price)
@@ -48,14 +60,24 @@ public class GoodsInfoActivity extends Activity {
     @Bind(R.id.tv_goods_shop_name)
     TextView shopName;
 
+    @Bind(iv_goods_num_shop_cart)
+    TextView goodsNum;
+
     @Bind(R.id.iv_shop_icon)
     ImageView shopIcon;
-
-
 
     private  String commodityId;
     private  String commodityFormatId;
     private CommodityBean commodityInfo;
+    //购物车服务项目
+    private List<SidOfNumBean> SDatas = new ArrayList<SidOfNumBean>();
+    //购物车商品项目
+    private List<CidOfNumBean> CDatas = new ArrayList<CidOfNumBean>();
+
+    private Integer scNum;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +87,37 @@ public class GoodsInfoActivity extends Activity {
         commodityId = getIntent().getStringExtra("commodityId");
         commodityFormatId = getIntent().getStringExtra("commodityFormatId");
         getCommodityInfo();
+
+    }
+
+    private void getNumInShopCart() {
+        //初始化
+        int sNum = 0;
+        int cNum = 0;
+        String sCartListStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CART_SERVICE_LIST+commodityInfo.shopId);
+        if(!StringUtils.isEmpty(sCartListStr)){
+            SDatas = JSON.parseArray(sCartListStr,SidOfNumBean.class);
+            sNum = SDatas.size();
+        }
+        String cCartListStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CART_COMMODITY_LIST+commodityInfo.shopId);
+        if(!StringUtils.isEmpty(cCartListStr)){
+            CDatas = JSON.parseArray(cCartListStr,CidOfNumBean.class);
+            cNum = CDatas.size();
+        }
+        scNum = sNum + cNum;
+        goodsNum.setText(scNum.toString());
     }
 
     @OnClick(R.id.ib_goods_info_back)
     void goBack(){
         finish();
+    }
+
+    @OnClick(R.id.iv_goods_shop_cart)
+    void goShopCart(){
+        Intent intent = new Intent(this, ShopCartActivity.class);
+        intent.putExtra("shopId",commodityInfo.getShopId().toString());
+        startActivity(intent);
     }
 
     @OnClick(R.id.tv_goods_goShop)
@@ -176,9 +224,25 @@ public class GoodsInfoActivity extends Activity {
     }
 
 
-    //商品购买
-    @OnClick(R.id.tv_goods_buy)
-    void goodsBuy(){
+    //商品加入购物车
+    @OnClick(R.id.tv_goods_add)
+    void goodsAdd(){
+        //有就增加数量没有就保存
+        for (int i = 0; i < CDatas.size(); i++) {
+            if (CDatas.get(i).getId() == commodityInfo.commodityId){
+                CDatas.get(i).setNum(CDatas.get(i).getNum()+1);
+                UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.CART_COMMODITY_LIST+commodityInfo.shopId, JSON.toJSONString(CDatas));
+                ToastUtils.showMessage("已加入购物车");
+                return;
+            }
+        }
+        CidOfNumBean cidOfNumBean = new CidOfNumBean();
+        cidOfNumBean.setId(commodityInfo.getCommodityId());
+        cidOfNumBean.setNum(1);
+        CDatas.add(cidOfNumBean);
+        UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.CART_COMMODITY_LIST+commodityInfo.shopId, JSON.toJSONString(CDatas));
+        getNumInShopCart();
+        ToastUtils.showMessage("已加入购物车");
 
     }
 
@@ -233,6 +297,7 @@ public class GoodsInfoActivity extends Activity {
     }
 
     private void initView() {
+        getNumInShopCart();
         //设置商品轮播图
         setBannerOneDatas();
         goodPrice.setText("￥"+commodityInfo.getAmount());

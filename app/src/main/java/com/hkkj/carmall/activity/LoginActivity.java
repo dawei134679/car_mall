@@ -106,8 +106,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 String tokenStr = AesUtil.aesDecryptString(jsonObject.getJSONObject("data").getString("token"));
                 String token = tokenStr.split("_")[0];
                 //保存token
-                UtilSharedPreference.saveString(getApplicationContext(), Config.TOKEN, token);
-                UtilSharedPreference.saveString(getApplicationContext(), Config.PHONE, phoneNum);
+                UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.TOKEN, token);
+                UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.PHONE, phoneNum);
                 //保存
                 UserInfoBean userInfo = JSON.parseObject(jsonObject.getJSONObject("data").get("userInfo").toString(),UserInfoBean.class);
                 MyApplication.getInstance().setUserInfoBean(userInfo);
