@@ -83,6 +83,7 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                 TextView tvNum = (TextView) parent.findViewById(R.id.tv_stcg_num);
                 Integer num = Integer.valueOf(tvNum.getText().toString());
                 int itemViewId = view.getId();
+                
                 switch (itemViewId){
                     case R.id.iv_stcg_sub:
                         if (num == 1){
