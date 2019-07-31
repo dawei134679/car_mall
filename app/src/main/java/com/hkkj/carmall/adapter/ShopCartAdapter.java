@@ -83,7 +83,7 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                 TextView tvNum = (TextView) parent.findViewById(R.id.tv_stcg_num);
                 Integer num = Integer.valueOf(tvNum.getText().toString());
                 int itemViewId = view.getId();
-                
+
                 switch (itemViewId){
                     case R.id.iv_stcg_sub:
                         if (num == 1){
@@ -93,7 +93,7 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                         num = num - 1;
                         scgItem.setNum(num);
                         shopCartGoodAdapter.notifyDataSetChanged();
-                        //notifyDataSetChanged();
+                        notifyDataSetChanged();
                        /*
                         if (type == 1){
                             for (int i = 0; i < SDatas.size(); i++) {
@@ -117,6 +117,7 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                         num = num + 1;
                         scgItem.setNum(num);
                         shopCartGoodAdapter.notifyDataSetChanged();
+                        notifyDataSetChanged();
                        /* if (type == 1){
                             for (int i = 0; i < SDatas.size(); i++) {
                                 if (SDatas.get(i).getId() == scgItem.getId()){
