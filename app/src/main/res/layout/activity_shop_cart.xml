@@ -45,6 +45,7 @@
             android:text="全选"
             />
         <TextView
+            android:id="@+id/spc_cb_del_All"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="删除"
