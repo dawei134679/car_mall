@@ -292,7 +292,7 @@ public class ShopActivity extends Activity {
                                         String sdatasStr = jsonObject.get("data").toString();
 
                                         //存服务列表
-                                        UtilSharedPreference.saveString(getApplicationContext(), Config.SERVICE_PROJECT_LIST, sdatasStr);
+                                        UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.SERVICE_PROJECT_LIST, sdatasStr);
 
                                         sdatas = parseArray(sdatasStr, ServiceProjectBean.class);
 

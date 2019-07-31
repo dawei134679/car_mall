@@ -16,6 +16,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.hb.dialog.myDialog.MyAlertDialog;
 import com.hb.dialog.myDialog.MyAlertInputDialog;
+import com.hkkj.carmall.MyApplication;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.bean.CategoryBean;
 import com.hkkj.carmall.bean.UserInfoBean;
@@ -182,7 +183,7 @@ public class CategoryActivity extends Activity {
 
     //获取商品分类
     private void getCategoryList() {
-        String userInfoStr = UtilSharedPreference.getStringValue(getApplicationContext(), Config.USER_INFO);
+        String userInfoStr = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.USER_INFO);
         UserInfoBean userInfo = JSONObject.parseObject(userInfoStr, UserInfoBean.class);
         HashMap<String, String> params = new HashMap<String, String>();
         if (userInfo.getShopId() != null){

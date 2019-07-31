@@ -56,6 +56,17 @@ public class ShopCartGoodAdapter extends BaseQuickAdapter<ShopCartGoodBean,BaseV
             GlideImageUtils.display(mContext,item.getImageUrl(),(ImageView) helper.getView(R.id.iv_stcg_good));
         }
 
+        //计算总价格
+        BigDecimal allPrice = BigDecimal.valueOf(00.00);
+        for (ShopCartBean bean : scbData){
+            for (ShopCartGoodBean sbean : bean.getScgDatas()){
+                if(sbean.isChecked()){
+                    allPrice = allPrice.add(sbean.getPrice().multiply(BigDecimal.valueOf(sbean.getNum())));
+                }
+            }
+        }
+        tvAllPrice.setText(allPrice.toString());
+
         helper.addOnClickListener(R.id.iv_stcg_sub);
         helper.addOnClickListener(R.id.iv_stcg_add);
 

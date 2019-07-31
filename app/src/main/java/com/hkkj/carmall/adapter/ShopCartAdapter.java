@@ -9,15 +9,20 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.hkkj.carmall.MyApplication;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.bean.CidOfNumBean;
 import com.hkkj.carmall.bean.ShopCartBean;
 import com.hkkj.carmall.bean.ShopCartGoodBean;
 import com.hkkj.carmall.bean.SidOfNumBean;
+import com.hkkj.carmall.utils.Config;
 import com.hkkj.carmall.utils.ToastUtils;
+import com.hkkj.carmall.utils.UtilSharedPreference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,29 +36,29 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
     private CheckBox cbAll;
     private TextView tvAllPrice;
     List<ShopCartGoodBean> scgDatas;
-    private Integer type;
-/*    private String shopId;
+
+    private String shopId;
 
     //购物车服务项目
     private List<SidOfNumBean> SDatas = new ArrayList<SidOfNumBean>();
     //购物车商品项目
-    private List<CidOfNumBean> CDatas = new ArrayList<CidOfNumBean>();*/
+    private List<CidOfNumBean> CDatas = new ArrayList<CidOfNumBean>();
 
     public ShopCartAdapter(@LayoutRes int layoutResId, @Nullable List<ShopCartBean> data, CheckBox cbAll, TextView tvAllPrice, List<SidOfNumBean> SDatas, List<CidOfNumBean> CDatas, String shopId) {
         super(layoutResId, data);
         scbData = data;
         this.cbAll = cbAll;
         this.tvAllPrice = tvAllPrice;
-  /*      this.SDatas = SDatas;
+        this.SDatas = SDatas;
         this.CDatas = CDatas;
-        this.shopId = shopId;*/
+        this.shopId = shopId;
 
     }
 
     @Override
     protected void convert(BaseViewHolder helper, final ShopCartBean item) {
         String statusText = null;
-        type  = item.getType();
+        final Integer type  = item.getType();
         if(type == 0){
             statusText = "到店服务";
         }
@@ -94,7 +99,6 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                         scgItem.setNum(num);
                         shopCartGoodAdapter.notifyDataSetChanged();
                         notifyDataSetChanged();
-                       /*
                         if (type == 1){
                             for (int i = 0; i < SDatas.size(); i++) {
                                 if (SDatas.get(i).getId() == scgItem.getId()){
@@ -110,15 +114,15 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                                     break;
                                 }
                             }
-                            UtilSharedPreference.saveString(MyApplication.getInstance(), Config.CART_COMMODITY_LIST+shopId, JSON.toJSONString(SDatas));
-                        }*/
+                            UtilSharedPreference.saveString(MyApplication.getInstance(), Config.CART_COMMODITY_LIST+shopId, JSON.toJSONString(CDatas));
+                        }
                         break;
                     case R.id.iv_stcg_add:
                         num = num + 1;
                         scgItem.setNum(num);
                         shopCartGoodAdapter.notifyDataSetChanged();
                         notifyDataSetChanged();
-                       /* if (type == 1){
+                        if (type == 1){
                             for (int i = 0; i < SDatas.size(); i++) {
                                 if (SDatas.get(i).getId() == scgItem.getId()){
                                     SDatas.get(i).setNum(num);
@@ -129,12 +133,12 @@ public class ShopCartAdapter extends BaseQuickAdapter<ShopCartBean,BaseViewHolde
                         }else{
                             for (int i = 0; i < CDatas.size(); i++) {
                                 if (CDatas.get(i).getId() == scgItem.getId()){
-                                    CDatas.get(i).setNum(num);
+                                     CDatas.get(i).setNum(num);
                                     break;
                                 }
                             }
-                            UtilSharedPreference.saveString(MyApplication.getInstance(), Config.CART_COMMODITY_LIST+shopId, JSON.toJSONString(SDatas));
-                        }*/
+                            UtilSharedPreference.saveString(MyApplication.getInstance(), Config.CART_COMMODITY_LIST+shopId, JSON.toJSONString(CDatas));
+                        }
                         break;
                 }
             }

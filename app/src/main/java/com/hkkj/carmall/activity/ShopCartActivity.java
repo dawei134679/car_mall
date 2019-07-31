@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.hb.dialog.myDialog.MyAlertDialog;
 import com.hkkj.carmall.MyApplication;
 import com.hkkj.carmall.R;
 import com.hkkj.carmall.adapter.ShopCartAdapter;
@@ -38,6 +39,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.alibaba.fastjson.JSON.parseArray;
@@ -89,6 +91,29 @@ public class ShopCartActivity extends Activity {
         getCommodityList();
     }
 
+    @OnClick(R.id.spc_cb_del_All)
+    void delAll(){
+        //删除
+        MyAlertDialog myAlertDialog = new MyAlertDialog(mContext).builder()
+                .setTitle("确认吗？")
+                .setMsg("删除内容")
+                .setPositiveButton("确认", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UtilSharedPreference.remove(MyApplication.getInstance().getApplicationContext(),Config.CART_COMMODITY_LIST + shopId);
+                        UtilSharedPreference.remove(MyApplication.getInstance().getApplicationContext(),Config.CART_SERVICE_LIST + shopId);
+                        scDatas.clear();
+                        getCommodityList();
+                    }
+                }).setNegativeButton("取消", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        return;
+                    }
+                });
+        myAlertDialog.show();
+    }
+
 
     //获取商品列表
     private void getCommodityList() {
@@ -119,7 +144,7 @@ public class ShopCartActivity extends Activity {
                                         if ("200".equals(code)) {
                                             allcDatas = JSON.parseArray(jsonObject.getJSONObject("data").get("list").toString(), CommodityBean.class);
                                             //获取购物车商品id列表
-                                            String spcCids = UtilSharedPreference.getStringValue(getApplicationContext(), Config.CART_COMMODITY_LIST + shopId);
+                                            String spcCids = UtilSharedPreference.getStringValue(MyApplication.getInstance().getApplicationContext(), Config.CART_COMMODITY_LIST + shopId);
                                             if(!StringUtils.isEmpty(spcCids)){
                                                 CDatas = JSON.parseArray(spcCids,CidOfNumBean.class);
                                                 if(CDatas.size() > 0){
@@ -144,10 +169,11 @@ public class ShopCartActivity extends Activity {
                                                     }
                                                     shopCartBean.setScgDatas(shopCartGoodBeens);
                                                     scDatas.add(shopCartBean) ;
-                                                    //获取购物车全部服务项目
-                                                    getServiceProject();
+
                                                 }
                                             }
+                                            //获取购物车全部服务项目
+                                            getServiceProject();
                                         } else {
                                             Log.e("e", "店铺全部商品列表失败");
                                         }
@@ -191,7 +217,7 @@ public class ShopCartActivity extends Activity {
                                             String sdatasStr = jsonObject.get("data").toString();
 
                                             //存服务列表
-                                            UtilSharedPreference.saveString(getApplicationContext(), Config.SERVICE_PROJECT_LIST, sdatasStr);
+                                            UtilSharedPreference.saveString(MyApplication.getInstance().getApplicationContext(), Config.SERVICE_PROJECT_LIST, sdatasStr);
 
                                             allSpDatas = parseArray(sdatasStr, ServiceProjectBean.class);
 
